@@ -1,0 +1,2550 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucia Sangalli - Massofisioterapia</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Luxury Palette - Stile di Base & Font */
+        :root {
+            /* Luxury Color Palette */
+            --primary-color: #fcf6ff; /* Lilla molto chiaro, leggermente più scuro per contrasto */
+            --secondary-color: #f3c6bf; /* Rosa antico */
+            --oro-luxury: #D4AF37; /* Oro luxury per accenti */
+            --oro-light: #F4E4BC; /* Oro chiaro */
+            --oro-dark: #B8941F; /* Oro scuro */
+            --text-dark: #3a322c; /* Testo principale, reso più scuro per maggiore leggibilità */
+            --text-medium: #8B7355; /* Testo secondario, mantenuto per contrasto */
+            --text-light: #A68B5B; /* Testo chiaro, mantenuto per contrasto */
+            --white: #FEFEFE; /* Bianco */
+            
+            /* Glass & Effects */
+            --glass-bg: rgba(252, 239, 254, 0.4); /* Opacità aumentata per maggiore contrasto */
+            --glass-border: rgba(243, 198, 191, 0.25); /* Bordo leggermente più visibile */
+            --text-shadow: 0 2px 4px rgba(93, 78, 55, 0.1);
+            --transition-3d: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --card-shadow: 0 1px 3px rgba(93, 78, 55, 0.12), 0 1px 2px rgba(93, 78, 55, 0.24);
+            --card-shadow-hover: 0 14px 28px rgba(93, 78, 55, 0.12), 0 10px 10px rgba(93, 78, 55, 0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+        
+        /* Performance optimizations */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Optimize animations for users who prefer reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--text-dark);
+            background-color: var(--primary-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        h1, h2, h3 {
+            color: black;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        h1 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+        }
+        
+        h2 {
+            font-size: clamp(1.3rem, 3.5vw, 2rem);
+        }
+        
+        h3 {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+        }
+        
+        p {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        /* Pulsanti con effetto 3D moderno - Colore secondario scuro */
+        .cta-button {
+            display: inline-block;
+            background: #f3c6bf;
+            color: var(--text-dark);
+            padding: 14px 28px;
+            border-radius: 50px;
+            margin-top: 15px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: var(--transition-3d);
+            box-shadow: 0 5px 15px rgba(243, 198, 191, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #e8b3ab;
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition-3d);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(243, 198, 191, 0.4);
+            border-color: #f3c6bf;
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        .cta-button:active {
+            transform: translateY(1px);
+        }
+
+        /* Effetto Glassmorphism con palette aggiornata */
+        .glass-effect {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--card-shadow);
+            padding: 25px;
+            margin: 20px 0;
+            transition: var(--transition-3d);
+        }
+
+        .glass-effect:hover {
+            box-shadow: var(--card-shadow-hover);
+            transform: translateY(-5px);
+            backdrop-filter: blur(16px) saturate(200%);
+            border-color: rgba(243, 198, 191, 0.3);
+        }
+
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(252, 239, 254, 0.9);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            box-shadow: 0 2px 10px rgba(243, 198, 191, 0.1);
+        }
+
+        .header.scrolled {
+            padding: 0.5rem 2rem;
+            background: rgba(252, 239, 254, 0.95);
+            box-shadow: 0 4px 20px rgba(243, 198, 191, 0.15);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: transform 0.3s ease;
+            color: var(--oro-luxury);
+            margin-right: auto;
+        }
+
+        .logo:hover {
+            transform: scale(1.03);
+        }
+
+        .logo-img {
+            height: 80px;
+            width: auto;
+            border-radius: 50%;
+            transition: transform 0.5s ease;
+            border: 2px solid var(--oro-light);
+        }
+
+        .logo:hover .logo-img {
+            transform: rotate(15deg);
+        }
+        
+        /* New logo styles */
+        .logo-text {
+            line-height: 1.2;
+            text-align: left;
+        }
+        
+        .logo-text .name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--oro-luxury);
+        }
+        
+        .logo-text .profession {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 0.8rem;
+            display: block;
+            margin-top: -3px;
+            letter-spacing: 0.5px;
+            color: var(--text-medium);
+        }
+
+
+
+
+
+        /* Hamburger menu updated */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 25px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .bar {
+            display: block;
+            width: 100%;
+            height: 3px;
+            margin: 5px 0;
+            background-color: var(--oro-luxury);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-origin: center;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Hero Section - Mobile First */
+        .hero {
+            min-height: 100vh;
+            background: url('hero.png') no-repeat center right/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-dark);
+            padding: 5rem 1rem 2rem;
+            position: relative;
+            z-index: 1;
+            background-attachment: scroll;
+        }
+        
+
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(252, 246, 255, 0.1);
+            z-index: -1;
+        }
+
+        .hero .glass-overlay {
+            background: rgba(252, 239, 254, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 2rem;
+            border-radius: 220px;
+            max-width: 90%;
+            margin: 0 1rem;
+            border: 2px solid var(--oro-light);
+            box-shadow: 0 15px 35px rgba(243, 198, 191, 0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(1.5rem, 6vw, 3.5rem);
+            color: var(--text-dark);
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            text-shadow: var(--text-shadow);
+
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+            text-shadow: var(--text-shadow);
+        }
+
+        /* About Section updated */
+        .about-section {
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(243, 198, 191, 0.3);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: morph 8s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .about-section::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(243, 198, 191, 0.2);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: morph 12s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes morph {
+            0% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+            50% {
+                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+            }
+            100% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .about-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow-hover);
+            transition: var(--transition-3d);
+            border: 3px solid #f3c6bf;
+        }
+
+        .about-image:hover {
+            transform: scale(1.02);
+            border-color: #fceffe;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Services Section - Mobile First */
+        .services-section {
+            padding: 3rem 0;
+            background: url('hero.png') no-repeat center right/cover;
+            background-attachment: scroll;
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+
+
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(252, 246, 255, 0.1);
+            z-index: 1;
+        }
+
+        .services-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #f3c6bf 0%, var(--oro-luxury) 50%, #fceffe 100%);
+            z-index: 3;
+        }
+
+        .services-section .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .services-glass-overlay {
+            background: rgba(252, 239, 254, 0.6);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            padding: 2rem 1rem;
+            border-radius: 220px;
+            border: 2px solid var(--oro-light);
+            box-shadow: 0 15px 35px rgba(184, 149, 50);
+            width: 90%;
+            max-width: 1200px;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        /* Carosello 3D */
+        .services-carousel-container {
+            width: 100%;
+            height: 60vh;
+            min-height: 400px;
+            max-height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1200px;
+            margin: 2rem 0;
+        }
+
+        .services-carousel {
+            position: relative;
+            width: 320px;
+            height: 400px;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .service-card {
+            position: absolute;
+            width: 85vw;
+            max-width: 280px;
+            height: 70vw;
+            max-height: 360px;
+            left: 50%;
+            top: 50%;
+            background: #07070736; /* Black*/
+            border-radius: 220px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            border: 2px solid #f3c6bf;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            backface-visibility: hidden;
+        }
+        
+        .service-card:hover {
+            box-shadow: var(--card-shadow-hover);
+            border-color: var(--oro-luxury);
+        }
+
+        .service-card h3,
+        .service-card p {
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Added text shadow for readability */
+        }
+
+        .service-icon {
+            font-size: clamp(2rem, 6vw, 3rem);
+            color: var(--oro-luxury);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            margin-bottom: 1rem;
+            color: #f3c6bf;
+        }
+
+        .service-card p {
+            color: black;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            font-size: clamp(0.8rem, 3vw, 1rem);
+        }
+
+        /* Pulsante all'interno della card dei servizi per centrare il testo */
+        .service-card .cta-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        /* Controlli del carosello */
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-btn {
+            background: var(--oro-luxury);
+            color: white;
+            border: none;
+            width: clamp(40px, 10vw, 50px);
+            height: clamp(40px, 10vw, 50px);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .carousel-btn:hover {
+            background: var(--oro-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Indicatori */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .indicator {
+            width: clamp(10px, 2.5vw, 12px);
+            height: clamp(10px, 2.5vw, 12px);
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: var(--oro-luxury);
+            transform: scale(1.2);
+        }
+
+        /* Testimonials Section updated */
+        .testimonials-section {
+            padding: 3rem 0;
+            position: relative;
+            background: linear-gradient(135deg, #fceffe 0%, #f3c6bf 100%);
+            text-align: center;
+        }
+
+        .testimonials-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            margin-bottom: 2rem;
+            font-style: italic;
+            padding: 1.5rem;
+            border-radius: 15px;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+            background: var(--white);
+            box-shadow: var(--card-shadow);
+        }
+
+        .testimonial:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: rgba(243, 198, 191, 0.2);
+            line-height: 1;
+            z-index: -1;
+        }
+
+        cite {
+            display: block;
+            margin-top: 15px;
+            font-style: normal;
+            font-weight: 600;
+            color: #f3c6bf;
+        }
+
+        /* Contact Section updated */
+        .contact-section {
+            padding: 3rem 0;
+            background: var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' fill='%23fceffe' opacity='.25'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' fill='%23fceffe' opacity='.5'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23fceffe'/%3E%3C/svg%3E") no-repeat;
+            background-size: cover;
+            transform: rotate(180deg);
+        }
+
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid rgba(243, 198, 191, 0.3);
+            border-radius: 12px;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            background: var(--white);
+            transition: var(--transition-3d);
+            width: 100%;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #f3c6bf;
+            box-shadow: 0 0 0 3px rgba(243, 198, 191, 0.2);
+            background: var(--white);
+        }
+
+        .map-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-3d);
+            border: 3px solid #f3c6bf;
+        }
+
+        .map-container:hover {
+            box-shadow: var(--card-shadow-hover);
+            transform: translateY(-5px);
+            border-color: #fceffe;
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer updated */
+        .footer {
+            text-align: center;
+            padding: 3rem 0 1rem;
+            background: linear-gradient(135deg, #fceffe 0%, #f3c6bf 50%, #fceffe 100%);
+            color: var(--text-dark);
+            position: relative;
+            border-top: 3px solid var(--oro-luxury);
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' fill='%23fceffe' opacity='.25'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' fill='%23fceffe' opacity='.5'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23fceffe'/%3E%3C/svg%3E") no-repeat;
+            background-size: cover;
+            transform: rotate(180deg);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(40px, 10vw, 45px);
+            height: clamp(40px, 10vw, 45px);
+            border-radius: 50%;
+            background: #f3c6bf;
+            color: var(--text-dark);
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            transition: var(--transition-3d);
+            box-shadow: 0 4px 8px rgba(243, 198, 191, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .social-links a:hover {
+            background: transparent;
+            color: var(--oro-luxury);
+            border-color: var(--oro-luxury);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* ===== MOBILE-FIRST RESPONSIVE DESIGN ===== */
+        
+        /* Base styles are mobile-first (no media query needed) */
+        
+        /* Tablet (≥768px) */
+        @media (min-width: 768px) {
+            /* Header & Navigation */
+            .header {
+                padding: 1rem 2rem;
+            }
+            
+            .logo {
+                gap: 12px;
+            }
+            
+            .logo-img {
+                height: 36px;
+            }
+            
+            .logo-text .name {
+                font-size: 2.2rem;
+            }
+            
+            .logo-text .profession {
+                font-size: 0.9rem;
+                margin-top: -4px;
+                letter-spacing: 0.8px;
+            }
+            
+            /* Navigation becomes horizontal */
+            .nav-menu {
+                display: flex !important;
+                flex-direction: row;
+                position: static;
+                width: auto;
+                background: transparent;
+                backdrop-filter: none;
+                padding: 0;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .nav-menu li {
+                margin: 0 0 0 20px;
+                padding: 0;
+                border-bottom: none;
+                text-align: left;
+            }
+            
+            .nav-menu a {
+                font-size: 1.2rem;
+                padding: 0.5rem 0;
+            }
+            
+            .hamburger {
+                display: none;
+            }
+            
+            /* Layout adjustments */
+            .container {
+                padding: 2rem;
+            }
+            
+            .about-content,
+            .contact-content {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 2rem;
+            }
+
+            .about-text, .about-image,
+            .contact-form, .contact-info {
+                flex: 1;
+            }
+
+            .about-text {
+                order: 1;
+            }
+            .about-image {
+                order: 2;
+            }
+            
+            /* Typography scaling */
+            .hero h1 {
+                font-size: clamp(2rem, 4vw, 3.5rem);
+            }
+            
+            .hero p {
+                font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            }
+            
+            /* Section spacing */
+            .about-section,
+            .services-section,
+            .testimonials-section,
+            .contact-section {
+                padding: 4rem 0;
+            }
+            
+            .services-section .container {
+                padding: 3rem 1.5rem;
+            }
+            
+            .services-glass-overlay {
+                padding: 2.5rem 1.5rem;
+                border-radius: 320px;
+                width: 85%;
+                min-height: 65vh;
+            }
+            
+            /* Hero adjustments */
+            .hero {
+                background-attachment: fixed;
+                padding: 6rem 2rem 3rem;
+            }
+            
+            .hero .glass-overlay {
+                padding: 3rem;
+                border-radius: 40px;
+                max-width: 80%;
+            }
+            
+            /* Footer */
+            .footer {
+                padding: 3.5rem 0 1.25rem;
+            }
+            
+            .social-links a {
+                width: 42px;
+                height: 42px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Desktop (≥1024px) */
+        @media (min-width: 1024px) {
+            /* Header & Navigation */
+            .header {
+                padding: 1.5rem 3rem;
+            }
+            
+            .logo {
+                gap: 15px;
+            }
+            
+            .logo-img {
+                height: 40px;
+            }
+            
+            .logo-text .name {
+                font-size: 2.5rem;
+            }
+            
+            .logo-text .profession {
+                font-size: 1rem;
+                margin-top: -5px;
+                letter-spacing: 1px;
+            }
+            
+            .nav-menu li {
+                margin-left: 25px;
+            }
+            
+            .nav-menu a {
+                font-size: 1.4rem;
+            }
+            
+            /* Layout */
+            .container {
+                padding: 3rem;
+                max-width: 1200px;
+            }
+            
+            /* Typography */
+            .hero h1 {
+                font-size: clamp(2.5rem, 5vw, 4rem);
+            }
+            
+            .hero p {
+                font-size: clamp(1.2rem, 3vw, 1.5rem);
+            }
+            
+            /* Section spacing */
+            .about-section,
+            .services-section,
+            .testimonials-section,
+            .contact-section {
+                padding: 6rem 0;
+            }
+            
+            .services-section .container {
+                padding: 4rem 2rem;
+            }
+            
+            .services-glass-overlay {
+                padding: 3rem 2rem;
+                border-radius: 40px;
+                width: 80%;
+                min-height: 70vh;
+            }
+            
+            /* Hero */
+            .hero {
+                padding: 8rem 3rem 4rem;
+            }
+            
+            .hero .glass-overlay {
+                padding: 4rem;
+                border-radius: 60px;
+                max-width: 70%;
+            }
+            
+            /* Footer */
+            .footer {
+                padding: 4rem 0 1.5rem;
+            }
+            
+            .social-links a {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* ===== MOBILE-SPECIFIC STYLES ===== */
+        
+        /* Hamburger menu - always visible on mobile */
+        .hamburger {
+            display: flex;
+        }
+        
+        /* Mobile navigation menu */
+        .nav-menu {
+            list-style: none;
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 70%;
+            height: 100vh;
+            background: rgba(252, 239, 254, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 80px 20px 20px;
+            text-align: center;
+            box-shadow: -5px 0 15px rgba(243, 198, 191, 0.1);
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .nav-menu.active {
+            display: flex;
+        }
+        
+        .nav-menu li {
+            margin: 0;
+            text-align: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(243, 198, 191, 0.2);
+        }
+        
+        .nav-menu li:last-child {
+            border-bottom: none;
+        }
+        
+        .nav-menu a {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.4rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            color: var(--text-dark);
+            display: block;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--oro-luxury);
+            transition: width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--oro-luxury);
+        }
+        
+        .nav-menu.active {
+            transform: translateX(0);
+        }
+        
+
+        
+
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(93, 78, 55, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .services-carousel-container {
+            height: 400px;
+        }
+
+        .service-card {
+            width: 85vw;
+            max-width: 250px;
+            height: 70vw;
+            max-height: 354px;
+        }
+
+        /* Accenti minimi rosa antico e lilla */
+        .service-card:nth-child(4n) {
+            border-top: 4px solid #f3c6bf;
+        }
+
+        .service-card:nth-child(6n) {
+            border-top: 4px solid #fceffe;
+        }
+
+        /* Titoli con linea dorata */
+        h2 {
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--oro-luxury), var(--oro-light));
+        }
+
+        .testimonials-section h2::after {
+            background: linear-gradient(90deg, #f3c6bf, var(--oro-luxury), #fceffe);
+        }
+        
+        /* Dynamic Service Selection System Styles */
+        .cart-section {
+            padding: 3rem 0;
+            background: var(--primary-color);
+            position: relative;
+        }
+        
+        .cart-glass-overlay {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .service-card-dropdown {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: var(--transition-3d);
+            border: 2px solid rgba(243, 198, 191, 0.3);
+        }
+        
+        .service-card-dropdown:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+            border-color: var(--oro-luxury);
+        }
+        
+        .service-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem;
+            cursor: pointer;
+            background: linear-gradient(135deg, rgba(243, 198, 191, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            transition: var(--transition-3d);
+        }
+        
+        .service-header:hover {
+            background: linear-gradient(135deg, rgba(243, 198, 191, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+        }
+        
+        .service-header.active {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(243, 198, 191, 0.1) 100%);
+            border-bottom: 2px solid var(--oro-luxury);
+        }
+        
+        .service-header h3 {
+            margin: 0;
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .service-icon-main {
+            font-size: 2rem;
+            color: var(--oro-luxury);
+            margin-right: 1rem;
+        }
+        
+        .dropdown-arrow {
+            font-size: 1.2rem;
+            color: var(--oro-luxury);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-header.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+        
+        /* Indicatore di scroll per dropdown attivi */
+        .service-dropdown.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--oro-luxury), transparent);
+            border-radius: 2px;
+            opacity: 0.6;
+            animation: scrollIndicator 2s ease-in-out infinite;
+        }
+        
+        @keyframes scrollIndicator {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+        
+        .service-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            background: var(--white);
+        }
+        
+        .service-dropdown.active {
+            max-height: 600px;
+        }
+        
+        /* Animazione rapida per chiusura dropdown adiacenti */
+        .service-dropdown.closing {
+            transition: max-height 0.2s ease-out;
+        }
+        
+        .service-details {
+            padding: 1.5rem;
+            max-height: 500px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--oro-luxury) rgba(243, 198, 191, 0.3);
+        }
+        
+        /* Styling per la scrollbar personalizzata */
+        .service-details::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .service-details::-webkit-scrollbar-track {
+            background: rgba(243, 198, 191, 0.1);
+            border-radius: 4px;
+        }
+        
+        .service-details::-webkit-scrollbar-thumb {
+            background: var(--oro-luxury);
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        
+        .service-details::-webkit-scrollbar-thumb:hover {
+            background: var(--oro-dark);
+        }
+        
+        .service-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+        }
+        
+        .service-table th,
+        .service-table td {
+            padding: 0.75rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(243, 198, 191, 0.2);
+        }
+        
+        .service-table th {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .service-table td {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+        
+        .service-table tr:hover {
+            background: rgba(243, 198, 191, 0.05);
+        }
+        
+        .select-service-btn {
+            background: var(--oro-luxury);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: var(--transition-3d);
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .select-service-btn:hover {
+            background: var(--oro-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .select-service-btn.selected {
+            background: #25D366;
+            pointer-events: none;
+        }
+        
+        .select-service-btn.selected::after {
+            content: '✓';
+            margin-left: 0.5rem;
+        }
+        
+        .cart-summary {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            border: 2px solid rgba(243, 198, 191, 0.3);
+            box-shadow: var(--card-shadow);
+        }
+        
+        .selected-services {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .selected-services h3 {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .selected-list {
+            min-height: 60px;
+        }
+        
+        .no-selection {
+            color: var(--text-medium);
+            font-style: italic;
+            margin: 0;
+        }
+        
+        .selected-service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--oro-luxury);
+        }
+        
+        .selected-service-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .selected-service-name {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        
+        .selected-service-duration {
+            font-size: 0.8rem;
+            color: var(--text-medium);
+            font-style: italic;
+        }
+        
+        .selected-service-price {
+            font-weight: 600;
+            color: var(--oro-luxury);
+        }
+        
+        .total-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 2px solid rgba(243, 198, 191, 0.3);
+        }
+        
+        .total-amount {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .total-amount span:last-child {
+            color: var(--oro-luxury);
+            font-size: 1.5rem;
+        }
+        
+        .whatsapp-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #25D366;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition-3d);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .whatsapp-button:hover:not(:disabled) {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .thank-you-message {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(37, 211, 102, 0.1);
+            border-radius: 15px;
+            border: 2px solid #25D366;
+            margin-top: 2rem;
+        }
+        
+        .thank-you-message i {
+            font-size: 3rem;
+            color: #25D366;
+            margin-bottom: 1rem;
+        }
+        
+        .thank-you-message h3 {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .thank-you-message p {
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Loading and Error States */
+        .loading-services {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-medium);
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(243, 198, 191, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--oro-luxury);
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .service-error {
+            text-align: center;
+            padding: 2rem;
+            color: #e74c3c;
+            background: rgba(231, 76, 60, 0.1);
+            border-radius: 15px;
+            margin: 1rem 0;
+        }
+        
+        .retry-button {
+            background: var(--oro-luxury);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        /* Mobile responsive adjustments for dropdown system */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .service-header {
+                padding: 1rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+            
+            .service-header h3 {
+                font-size: 1.2rem;
+            }
+            
+            .service-icon-main {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+            
+            .dropdown-arrow {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .service-details {
+                padding: 1rem;
+                max-height: none;
+                overflow-y: visible;
+            }
+            
+            .service-table {
+                font-size: 0.8rem;
+            }
+            
+            .service-table th,
+            .service-table td {
+                padding: 0.5rem 0.25rem;
+            }
+            
+            .select-service-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+            
+            .cart-summary {
+                padding: 1.5rem;
+            }
+            
+            .total-section {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .whatsapp-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="header">
+        <a href="#hero" class="logo">
+            <picture>
+                
+                <img src="LuciaLogo.png" alt="Logo Lucia Sangalli" class="logo-img" loading="lazy">
+            </picture>
+            <div class="logo-text">
+                <span class="name">Lucia Sangalli</span>
+                <span class="profession">Massofisioterapia</span>
+            </div>
+        </a>
+        <nav class="nav">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about">Chi Sono</a></li>
+                <li><a href="#services">Servizi</a></li>
+                <li><a href="#cart">Prenota</a></li>
+                <li><a href="#testimonials">Testimonianze</a></li>
+                <li><a href="#contact">Contatti</a></li>
+                <li><a href="rituali.html">Trattamenti</a></li>
+                <li><a href="pacchettiTrattamenti.html">Pacchetti</a></li>
+                <li><a href="PromozioniAutunno25.html">Promozioni</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="menu-overlay" id="menuOverlay"></div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="glass-overlay">
+                <h1>Ritrova il tuo equilibrio</h1>
+                <p>Massofisioterapia professionale per il tuo benessere.</p>
+                <a href="#contact" class="cta-button">Prenota Ora</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Chi sono</h2>
+                        <p>Ciao, sono Lucia Sangalli. La mia missione è aiutarti a ritrovare il benessere attraverso trattamenti personalizzati di massofisioterapia. Credo fermamente che il corpo e la mente siano un'unica entità e che prendersene cura sia fondamentale per una vita serena e in equilibrio.</p>
+                        <a href="#services" class="cta-button">Scopri i miei servizi</a>
+                    </div>
+                    <div class="about-image">
+                        <picture>
+                            <source srcset="LuciaFoto.webp" type="image/webp">
+                            <source srcset="LuciaFoto.avif" type="image/avif">
+                            <img src="LuciaFoto.png" alt="Foto di Lucia Sangalli" style="width: 100%; height: auto; border-radius: 15px;" loading="lazy">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="services-glass-overlay">
+                    <h2>I miei servizi</h2>
+                    <div class="services-carousel-container">
+                        <div class="services-carousel" id="servicesCarousel">
+                            <div class="service-card">
+                                <i class="fas fa-hand-holding-heart service-icon"></i>
+                                <h3>Trattamenti</h3>
+                                <p>Trattamenti mirati per la cura della persona.</p>
+                                <a href="pacchettiTrattamenti.html" class="cta-button">Prenota</a>
+                            </div>
+                            <div class="service-card">
+                                <i class="fas fa-water service-icon"></i>
+                                <h3>Linfodrenaggio</h3>
+                                <p>Massaggi delicati per favorire la circolazione linfatica e ridurre i gonfiori.</p>
+                                <a href="#contact" class="cta-button">Prenota</a>
+                            </div>
+                            <div class="service-card">
+                                <i class="fas fa-running service-icon"></i>
+                                <h3>Promozioni Autunno 2025</h3>
+                                <p>Non lasciarti scappare questa offerta!.</p>
+                                <a href="PromozioniAutunno25.html" class="cta-button">Prenota</a>
+                            </div>
+                            <div class="service-card">
+                                <i class="fas fa-spa service-icon"></i>
+                                <h3>Rituali</h3>
+                                <p>Massaggi rilassanti per ridurre lo stress e migliorare la qualità del sonno.</p>
+                                <a href="rituali.html" class="cta-button">Prenota</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-controls">
+                        <button class="carousel-btn" id="prevBtn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn" id="nextBtn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="carousel-indicators" id="indicators">
+                        <div class="indicator active" data-index="0"></div>
+                        <div class="indicator" data-index="1"></div>
+                        <div class="indicator" data-index="2"></div>
+                        <div class="indicator" data-index="3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Dynamic Service Selection System -->
+        <section id="cart" class="cart-section">
+            <div class="container">
+                <div class="cart-glass-overlay glass-effect">
+                    <h2>Prenota i tuoi servizi</h2>
+                    <p>Clicca sui servizi per visualizzare i dettagli e selezionare le opzioni</p>
+                    
+                    <div id="servicesGrid" class="services-grid">
+                        <div class="loading-services">
+                            <div class="loading-spinner"></div>
+                            Caricamento servizi...
+                        </div>
+                    </div>
+                    
+                    <div class="cart-summary">
+                        <div class="selected-services">
+                            <h3>Servizi selezionati:</h3>
+                            <div id="selectedServicesList" class="selected-list">
+                                <p class="no-selection">Nessun servizio selezionato</p>
+                            </div>
+                        </div>
+                        
+                        <div class="total-section">
+                            <div class="total-amount">
+                                <span>Totale:</span>
+                                <span id="totalAmount">€0</span>
+                            </div>
+                            <button id="whatsappBtn" class="whatsapp-button" disabled>
+                                <i class="fab fa-whatsapp"></i>
+                                Invia via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Thank you message (hidden by default) -->
+                    <div id="thankYouMessage" class="thank-you-message" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Grazie per avermi scelto!</h3>
+                        <p>La conferma sarà disponibile in 12 ore.</p>
+                        <button id="resetCartBtn" class="cta-button">Seleziona altri servizi</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials-section">
+            <div class="container glass-effect">
+                <h2>Cosa dicono di me</h2>
+                <div class="testimonial">
+                    <p>"Lucia è una professionista eccezionale. Ha risolto i miei problemi alla schiena in poche sedute. La sua professionalità e l'ambiente accogliente rendono ogni visita un piacere."</p>
+                    <cite>- Mario Rossi</cite>
+                </div>
+                <div class="testimonial">
+                    <p>"I massaggi di Lucia sono una vera rinascita! Dopo ogni seduta mi sento rigenerata, sia fisicamente che mentalmente. Consigliatissima!"</p>
+                    <cite>- Giulia Bianchi</cite>
+                </div>
+                <div class="testimonial">
+                    <p>"Come atleta, ho bisogno di trattamenti specifici e competenti. Lucia ha dimostrato grande professionalità nel seguirmi nel recupero da un infortunio."</p>
+                    <cite>- Andrea Neri</cite>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="contact-section">
+            <div class="container contact-content">
+                <div class="contact-form glass-effect">
+                    <h2>Contattami</h2>
+                    <p>Compila il form o chiamami per fissare il tuo appuntamento.</p>
+                    <form action="#" method="POST">
+                        <input type="text" name="name" placeholder="Il tuo nome" required>
+                        <input type="email" name="email" placeholder="La tua email" required>
+                        <input type="tel" name="phone" placeholder="Il tuo telefono">
+                        <textarea name="message" placeholder="Il tuo messaggio" rows="4" required></textarea>
+                        <button type="submit" class="cta-button">Invia Messaggio</button>
+                    </form>
+                </div>
+                <div class="contact-info glass-effect">
+                    <h2>Dove trovarmi</h2>
+                    <p><strong>Indirizzo:</strong> Via Alcide, 32 - 24048 Treviolo (Bergamo)</p>
+                    <p><strong>Telefono:</strong> +39 333 1234567</p>
+                    <p><strong>Email:</strong> info@luciasangalli.it</p>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2789.8!2d9.627!3d45.632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781445b8f8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sVia%20Alcide%2C%2032%2C%2024048%20Treviolo%20BG!5e0!3m2!1sit!2sit!4v1626027845012!5m2!1sit!2sit"
+                            width="100%"
+                            height="250"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.instagram.com/luciasangallimassoterapia" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>© 2025 Lucia Sangalli. Tutti i diritti riservati.</p>
+            <p><small>P.IVA: 12345678901</small></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            const menuOverlay = document.getElementById('menuOverlay');
+            
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+            });
+            
+            menuOverlay.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close menu when clicking on links
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+            
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Services Carousel 3D - VERSIONE CORRETTA
+            const carousel = document.getElementById('servicesCarousel');
+            const cards = document.querySelectorAll('.service-card');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const indicators = document.querySelectorAll('.indicator');
+            
+            let currentIndex = 0;
+            const totalCards = cards.length;
+            const angleStep = 360 / totalCards;
+            const radius = 250;
+            
+            // Inizializza il posizionamento delle card
+            function initCarousel() {
+                cards.forEach((card, index) => {
+                    const angle = index * angleStep;
+                    const rotateY = angle;
+                    const translateZ = radius;
+                    
+                    card.style.transform = `translateX(-50%) translateY(-50%) rotateY(${rotateY}deg) translateZ(${translateZ}px)`;
+                    
+                    // Rendi visibile solo la card frontale
+                    if (index === 0) {
+                        card.style.opacity = '1';
+                        card.style.zIndex = '10';
+                    } else {
+                        card.style.opacity = '0.7';
+                        card.style.zIndex = '1';
+                    }
+                });
+            }
+            
+            // Ruota il carosello
+            function rotateCarousel() {
+                const rotation = -currentIndex * angleStep;
+                carousel.style.transform = `rotateY(${rotation}deg)`;
+                
+                // Aggiorna la visibilità delle card
+                cards.forEach((card, index) => {
+                    if (index === currentIndex) {
+                        card.style.opacity = '1';
+                        card.style.zIndex = '10';
+                    } else {
+                        card.style.opacity = '0.7';
+                        card.style.zIndex = '1';
+                    }
+                });
+                
+                // Aggiorna gli indicatori
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            // Eventi per i pulsanti
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalCards;
+                rotateCarousel();
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+                rotateCarousel();
+            });
+            
+            // Eventi per gli indicatori
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    rotateCarousel();
+                });
+            });
+            
+            // Auto-rotation (opzionale)
+            let autoRotate = setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalCards;
+                rotateCarousel();
+            }, 5000);
+            
+            // Pausa auto-rotation quando l'utente interagisce
+            const carouselContainer = document.querySelector('.services-carousel-container');
+            carouselContainer.addEventListener('mouseenter', () => {
+                clearInterval(autoRotate);
+            });
+            
+            carouselContainer.addEventListener('mouseleave', () => {
+                autoRotate = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % totalCards;
+                    rotateCarousel();
+                }, 5000);
+            });
+            
+            // Inizializza il carosello
+            initCarousel();
+            
+            // Touch/swipe support per mobile
+            let startX = 0;
+            let isDragging = false;
+            
+            carouselContainer.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+                clearInterval(autoRotate);
+            });
+            
+            carouselContainer.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+            });
+            
+            carouselContainer.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                
+                const endX = e.changedTouches[0].clientX;
+                const diffX = startX - endX;
+                
+                if (Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        // Swipe left - next
+                        currentIndex = (currentIndex + 1) % totalCards;
+                    } else {
+                        // Swipe right - prev
+                        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+                    }
+                    rotateCarousel();
+                }
+                
+                isDragging = false;
+                
+                // Riavvia auto-rotation
+                autoRotate = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % totalCards;
+                    rotateCarousel();
+                }, 5000);
+            });
+            
+            // Dynamic Service Selection System
+            class ServiceSelectionSystem {
+                constructor() {
+                    this.selectedServices = [];
+                    this.total = 0;
+                    this.whatsappNumber = '393331234567'; // UPDATE THIS WITH YOUR ACTUAL NUMBER
+                    this.serviceData = {}; // Memorizza i servizi per categoria
+                    
+                    this.init();
+                }
+                
+                init() {
+                    this.bindElements();
+                    this.loadServicesFromCarousel();
+                }
+                
+                bindElements() {
+                    this.servicesGrid = document.getElementById('servicesGrid');
+                    this.selectedServicesList = document.getElementById('selectedServicesList');
+                    this.totalAmount = document.getElementById('totalAmount');
+                    this.whatsappBtn = document.getElementById('whatsappBtn');
+                    this.thankYouMessage = document.getElementById('thankYouMessage');
+                    this.resetCartBtn = document.getElementById('resetCartBtn');
+                }
+                
+                // Estrae i servizi dal carosello
+                loadServicesFromCarousel() {
+                    const serviceCards = document.querySelectorAll('.service-card');
+                    const servicePromises = [];
+                    
+                    // Mostra stato di caricamento
+                    this.servicesGrid.innerHTML = `
+                        <div class="loading-services">
+                            <div class="loading-spinner"></div>
+                            Caricamento servizi...
+                        </div>
+                    `;
+                    
+                    // Per ogni card nel carosello, estrai il link e carica i servizi
+                    serviceCards.forEach(card => {
+                        const linkElement = card.querySelector('a.cta-button');
+                        if (linkElement && linkElement.href) {
+                            const servicePage = linkElement.href;
+                            const serviceName = card.querySelector('h3').textContent;
+                            const serviceIcon = card.querySelector('.service-icon').className;
+                            
+                            // Aggiungi promessa per caricare i servizi da questa pagina
+                            servicePromises.push(
+                                this.fetchServicesFromPage(servicePage, serviceName, serviceIcon)
+                            );
+                        }
+                    });
+                    
+                    // Quando tutte le pagine sono state caricate
+                    Promise.all(servicePromises)
+                        .then(() => {
+                            this.renderServices();
+                        })
+                        .catch(error => {
+                            console.error('Errore nel caricamento servizi:', error);
+                            this.showError();
+                        });
+                }
+                
+                // Recupera i servizi da una pagina specifica
+                async fetchServicesFromPage(url, category, iconClass) {
+                    try {
+                        const response = await fetch(url);
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        
+                        const html = await response.text();
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, 'text/html');
+                        
+                        let services = [];
+                        
+                        // Cerca tabelle con classe "rituals-table" (struttura delle tue pagine)
+                        const serviceTables = doc.querySelectorAll('table.rituals-table');
+                        
+                        if (serviceTables.length > 0) {
+                            serviceTables.forEach(table => {
+                                const rows = table.querySelectorAll('tbody tr');
+                                rows.forEach(row => {
+                                    const cells = row.querySelectorAll('td');
+                                    if (cells.length >= 3) {
+                                        // Estrai nome del servizio
+                                        const nameElement = cells[0].querySelector('h3');
+                                        const name = nameElement ? nameElement.textContent.trim() : cells[0].textContent.trim();
+                                        
+                                        // Estrai prezzo
+                                        const priceElement = cells[2].querySelector('.promotion-price');
+                                        let price = 0;
+                                        if (priceElement) {
+                                            price = this.extractPrice(priceElement.textContent);
+                                        }
+                                        
+                                        // Estrai durata
+                                        let duration = '';
+                                        const durationElement = cells[2].querySelector('.individual-price');
+                                        if (durationElement) {
+                                            const durationText = durationElement.textContent;
+                                            const durationMatch = durationText.match(/Durata:\s*(\d+\s*min)/);
+                                            if (durationMatch) {
+                                                duration = durationMatch[1];
+                                            }
+                                        }
+                                        
+                                        // Se non c'è durata specifica, prova a estrarla dal testo
+                                        if (!duration) {
+                                            const allText = row.textContent;
+                                            const durationMatch = allText.match(/(\d+\s*min)/);
+                                            if (durationMatch) {
+                                                duration = durationMatch[1];
+                                            }
+                                        }
+                                        
+                                        if (name && price > 0) {
+                                            services.push({ name, price, duration });
+                                        }
+                                    }
+                                });
+                            });
+                        }
+                        
+                        // Se non troviamo servizi con i metodi sopra, usiamo un fallback
+                        if (services.length === 0) {
+                            services = this.getFallbackServices(category);
+                        }
+                        
+                        // Memorizza i servizi per questa categoria
+                        this.serviceData[category] = {
+                            icon: iconClass,
+                            services: services
+                        };
+                        
+                    } catch (error) {
+                        console.error(`Errore nel caricamento da ${url}:`, error);
+                        // Fallback ai servizi predefiniti in caso di errore
+                        this.serviceData[category] = {
+                            icon: iconClass,
+                            services: this.getFallbackServices(category)
+                        };
+                    }
+                }
+                
+                // Estrae il prezzo dal testo
+                extractPrice(text) {
+                    // Gestisce formati come "60 €", "200€", "280 €", ecc.
+                    const match = text.match(/(\d+)\s*€/);
+                    return match ? parseInt(match[1]) : 0;
+                }
+                
+                // Servizi di fallback nel caso non si possano estrarre dalle pagine
+                getFallbackServices(category) {
+                    // Servizi reali dalle tue pagine
+                    switch(category) {
+                        case 'Trattamenti':
+                            return [
+                                { name: 'Check up generale', price: 40, duration: '40 min' },
+                                { name: 'Pacchetto Restart', price: 200, duration: '5 sedute' },
+                                { name: 'Pacchetto Restart PRO', price: 280, duration: '10 sedute' },
+                                { name: 'Stop stitichezza', price: 45, duration: '60 min' },
+                                { name: 'Pacchetto Anti-Stipsi', price: 200, duration: '5 sedute' },
+                                { name: 'Pacchetto Anti-Stipsi PRO', price: 350, duration: '10 sedute' },
+                                { name: 'Massaggio gambe', price: 45, duration: '40 min' },
+                                { name: 'Pacchetto Gambe Leggere', price: 200, duration: '5 sedute' },
+                                { name: 'Pacchetto Gambe Leggere PRO', price: 350, duration: '10 sedute' }
+                            ];
+                        case 'Linfodrenaggio':
+                            return [
+                                { name: 'Linfodrenaggio Base', price: 50, duration: '' },
+                                { name: 'Linfodrenaggio Completo', price: 80, duration: '' }
+                            ];
+                        case 'Promozioni Autunno 2025':
+                            return [
+                                { name: 'Rientro dal mare', price: 50, duration: '' },
+                                { name: 'Ti dreno l\'anima', price: 50, duration: '' },
+                                { name: 'Glow up viso', price: 50, duration: '' },
+                                { name: 'Glow up corpo', price: 50, duration: '' }
+                            ];
+                        case 'Rituali':
+                            return [
+                                { name: 'Respira', price: 60, duration: '60 min' },
+                                { name: 'Libera Mente', price: 30, duration: '30 min' },
+                                { name: 'In punta di piedi', price: 20, duration: '20 min' }
+                            ];
+                        default:
+                            return [
+                                { name: `${category} Base`, price: 50, duration: '' },
+                                { name: `${category} Avanzato`, price: 80, duration: '' }
+                            ];
+                    }
+                }
+                
+                // Mostra errore di caricamento
+                showError() {
+                    this.servicesGrid.innerHTML = `
+                        <div class="service-error">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>Impossibile caricare i servizi al momento.</p>
+                            <button class="retry-button" onclick="location.reload()">Riprova</button>
+                        </div>
+                    `;
+                }
+                
+                // Renderizza i servizi nell'interfaccia
+                renderServices() {
+                    if (Object.keys(this.serviceData).length === 0) {
+                        this.showError();
+                        return;
+                    }
+                    
+                    let html = '';
+                    
+                    for (const [category, data] of Object.entries(this.serviceData)) {
+                        html += `
+                            <div class="service-card-dropdown">
+                                <div class="service-header" data-service="${this.sanitizeId(category)}">
+                                    <i class="${data.icon} service-icon-main"></i>
+                                    <h3>${category}</h3>
+                                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                                </div>
+                                <div class="service-dropdown" id="${this.sanitizeId(category)}-dropdown">
+                                    <div class="service-details">
+                                        <table class="service-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Servizio</th>
+                                                    <th>Durata</th>
+                                                    <th>Prezzo</th>
+                                                    <th>Seleziona</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                        `;
+                        
+                        data.services.forEach(service => {
+                            const serviceId = this.sanitizeId(`${category}-${service.name}`);
+                            const durationDisplay = service.duration || '-';
+                            html += `
+                                <tr data-service="${service.name}" data-price="${service.price}" data-duration="${service.duration}">
+                                    <td>${service.name}</td>
+                                    <td>${durationDisplay}</td>
+                                    <td>€${service.price}</td>
+                                    <td><button class="select-service-btn" data-service="${serviceId}" data-price="${service.price}">Aggiungi</button></td>
+                                </tr>
+                            `;
+                        });
+                        
+                        html += `
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                    
+                    this.servicesGrid.innerHTML = html;
+                    this.bindEvents();
+                }
+                
+                // Genera un ID sicuro per gli elementi HTML
+                sanitizeId(text) {
+                    return text.toLowerCase()
+                        .replace(/\s+/g, '-')
+                        .replace(/[^a-z0-9-]/g, '');
+                }
+                
+                bindEvents() {
+                    // Service header click events for dropdown toggle
+                    this.serviceHeaders = document.querySelectorAll('.service-header');
+                    this.serviceDropdowns = document.querySelectorAll('.service-dropdown');
+                    this.selectServiceBtns = document.querySelectorAll('.select-service-btn');
+                    
+                    this.serviceHeaders.forEach(header => {
+                        header.addEventListener('click', (e) => this.toggleDropdown(e));
+                    });
+                    
+                    // Service selection button events
+                    this.selectServiceBtns.forEach(btn => {
+                        btn.addEventListener('click', (e) => this.handleServiceSelection(e));
+                    });
+                    
+                    // WhatsApp button event
+                    this.whatsappBtn.addEventListener('click', () => this.sendWhatsApp());
+                    
+                    // Reset cart button event
+                    this.resetCartBtn.addEventListener('click', () => this.resetCart());
+                    
+                    // Close dropdowns when clicking outside
+                    document.addEventListener('click', (e) => this.handleOutsideClick(e));
+                    
+                    // Verifica che lo stato iniziale sia corretto
+                    this.ensureSingleDropdownOpen();
+                }
+                
+                // I metodi restanti rimangono invariati
+                                 // Funzione toggleDropdown con chiusura automatica dei dropdown adiacenti
+                 toggleDropdown(e) {
+                     const header = e.currentTarget;
+                     const serviceId = header.dataset.service;
+                     const dropdown = document.getElementById(`${serviceId}-dropdown`);
+                     
+                     // Se il dropdown è già aperto, chiudilo e esci
+                     if (dropdown.classList.contains('active')) {
+                         dropdown.classList.remove('active');
+                         header.classList.remove('active');
+                         return;
+                     }
+                     
+                     // Chiudi tutti i dropdown e header
+                     this.serviceDropdowns.forEach(dd => {
+                         dd.classList.remove('active');
+                     });
+                     
+                     this.serviceHeaders.forEach(h => {
+                         h.classList.remove('active');
+                     });
+                     
+                     // Apri il dropdown corrente
+                     dropdown.classList.add('active');
+                     header.classList.add('active');
+                     
+                     // Chiudi specificamente i dropdown adiacenti per evitare sovrapposizioni
+                     this.closeAdjacentDropdowns(dropdown);
+                     
+                     // Scroll smooth al dropdown aperto per una migliore UX
+                     setTimeout(() => {
+                         dropdown.scrollIntoView({ 
+                             behavior: 'smooth', 
+                             block: 'nearest',
+                             inline: 'nearest'
+                         });
+                     }, 100);
+                 }
+                 
+                 // Metodo per chiudere i dropdown adiacenti
+                 closeAdjacentDropdowns(activeDropdown) {
+                     if (!this.serviceDropdowns || !this.serviceHeaders) return;
+                     
+                     const dropdowns = Array.from(this.serviceDropdowns);
+                     const activeIndex = dropdowns.indexOf(activeDropdown);
+                     
+                     // Chiudi il dropdown sopra (se esiste) con animazione rapida
+                     if (activeIndex > 0) {
+                         const previousDropdown = dropdowns[activeIndex - 1];
+                         const previousHeader = this.serviceHeaders[activeIndex - 1];
+                         
+                         if (previousDropdown && previousHeader) {
+                             // Applica animazione rapida per la chiusura
+                             previousDropdown.classList.add('closing');
+                             previousDropdown.classList.remove('active');
+                             previousHeader.classList.remove('active');
+                             
+                             // Rimuovi la classe di animazione dopo la chiusura
+                             setTimeout(() => {
+                                 previousDropdown.classList.remove('closing');
+                             }, 200);
+                         }
+                     }
+                     
+                     // Chiudi il dropdown sotto (se esiste) con animazione rapida
+                     if (activeIndex < dropdowns.length - 1) {
+                         const nextDropdown = dropdowns[activeIndex + 1];
+                         const nextHeader = this.serviceHeaders[activeIndex + 1];
+                         
+                         if (nextDropdown && nextHeader) {
+                             // Applica animazione rapida per la chiusura
+                             nextDropdown.classList.add('closing');
+                             nextDropdown.classList.remove('active');
+                             nextHeader.classList.remove('active');
+                             
+                             // Rimuovi la classe di animazione dopo la chiusura
+                             setTimeout(() => {
+                                 nextDropdown.classList.remove('closing');
+                             }, 200);
+                         }
+                     }
+                 }
+                
+                handleServiceSelection(e) {
+                    const btn = e.currentTarget;
+                    const row = btn.closest('tr');
+                    const serviceName = row.dataset.service;
+                    const servicePrice = parseInt(row.dataset.price);
+                    const serviceDuration = row.dataset.duration;
+                    
+                    if (btn.classList.contains('selected')) {
+                        // Remove service
+                        this.removeService(serviceName, servicePrice);
+                        btn.classList.remove('selected');
+                        btn.textContent = 'Aggiungi';
+                    } else {
+                        // Add service
+                        this.addService(serviceName, servicePrice, serviceDuration);
+                        btn.classList.add('selected');
+                        btn.textContent = 'Selezionato';
+                    }
+                    
+                    this.updateCart();
+                }
+                
+                addService(name, price, duration) {
+                    this.selectedServices.push({ name, price, duration });
+                    this.total += price;
+                }
+                
+                removeService(name, price) {
+                    const index = this.selectedServices.findIndex(service => service.name === name);
+                    if (index > -1) {
+                        this.selectedServices.splice(index, 1);
+                        this.total -= price;
+                    }
+                }
+                
+                updateCart() {
+                    if (this.selectedServices.length === 0) {
+                        this.selectedServicesList.innerHTML = '<p class="no-selection">Nessun servizio selezionato</p>';
+                        this.totalAmount.textContent = '€0';
+                        this.whatsappBtn.disabled = true;
+                    } else {
+                        this.selectedServicesList.innerHTML = this.selectedServices.map(service => `
+                            <div class="selected-service-item">
+                                <div class="selected-service-info">
+                                    <span class="selected-service-name">${service.name}</span>
+                                    <span class="selected-service-duration">${service.duration || ''}</span>
+                                </div>
+                                <span class="selected-service-price">€${service.price}</span>
+                            </div>
+                        `).join('');
+                        this.totalAmount.textContent = `€${this.total}`;
+                        this.whatsappBtn.disabled = false;
+                    }
+                }
+                
+                generateWhatsAppMessage() {
+                    const servicesText = this.selectedServices.map(service => {
+                        if (service.duration) {
+                            return `• ${service.name} (${service.duration}) - €${service.price}`;
+                        } else {
+                            return `• ${service.name} - €${service.price}`;
+                        }
+                    }).join('\n');
+                    
+                    const message = `Ciao Lucia! Vorrei prenotare i seguenti servizi:\n\n${servicesText}\n\nTotale: €${this.total}\n\nGrazie!`;
+                    
+                    return encodeURIComponent(message);
+                }
+                
+                sendWhatsApp() {
+                    const message = this.generateWhatsAppMessage();
+                    const whatsappUrl = `https://wa.me/${this.whatsappNumber}?text=${message}`;
+                    
+                    // Open WhatsApp
+                    window.open(whatsappUrl, '_blank');
+                    
+                    // Show thank you message after a short delay
+                    setTimeout(() => {
+                        this.showThankYouMessage();
+                    }, 1000);
+                }
+                
+                showThankYouMessage() {
+                    this.thankYouMessage.style.display = 'block';
+                    this.thankYouMessage.scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                resetCart() {
+                    this.selectedServices = [];
+                    this.total = 0;
+                    
+                    // Reset all buttons
+                    if (this.selectServiceBtns) {
+                        this.selectServiceBtns.forEach(btn => {
+                            btn.classList.remove('selected');
+                            btn.textContent = 'Aggiungi';
+                        });
+                    }
+                    
+                    // Close all dropdowns using the new method
+                    this.closeAllDropdowns();
+                    
+                    this.updateCart();
+                    this.thankYouMessage.style.display = 'none';
+                }
+                
+                handleOutsideClick(e) {
+                    if (!e.target.closest('.service-card-dropdown')) {
+                        if (this.serviceDropdowns) {
+                            this.serviceDropdowns.forEach(dd => dd.classList.remove('active'));
+                        }
+                        if (this.serviceHeaders) {
+                            this.serviceHeaders.forEach(header => header.classList.remove('active'));
+                        }
+                    }
+                }
+                
+                // Metodo per chiudere tutti i dropdown (utile per reset)
+                closeAllDropdowns() {
+                    if (this.serviceDropdowns) {
+                        this.serviceDropdowns.forEach(dd => dd.classList.remove('active'));
+                    }
+                    if (this.serviceHeaders) {
+                        this.serviceHeaders.forEach(header => header.classList.remove('active'));
+                    }
+                }
+                
+                // Metodo per verificare che solo un dropdown sia aperto
+                ensureSingleDropdownOpen() {
+                    let activeDropdowns = 0;
+                    let activeHeaders = 0;
+                    
+                    if (this.serviceDropdowns) {
+                        this.serviceDropdowns.forEach(dd => {
+                            if (dd.classList.contains('active')) activeDropdowns++;
+                        });
+                    }
+                    
+                    if (this.serviceHeaders) {
+                        this.serviceHeaders.forEach(header => {
+                            if (header.classList.contains('active')) activeHeaders++;
+                        });
+                    }
+                    
+                    // Se ci sono più di un dropdown aperto, chiudi tutti tranne il primo
+                    if (activeDropdowns > 1 || activeHeaders > 1) {
+                        this.closeAllDropdowns();
+                    }
+                }
+            }
+            
+            // Initialize service selection system when DOM is loaded
+            new ServiceSelectionSystem();
+            
+            // Form submission
+            const contactForm = document.querySelector('.contact-form form');
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Simulate form submission
+                const name = contactForm.querySelector('input[name="name"]').value;
+                alert(`Grazie ${name}! La tua richiesta è stata inviata con successo. Ti contatteremo a breve per confermare l'appuntamento.`);
+                
+                // Reset form
+                contactForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
