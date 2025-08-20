@@ -2,12 +2,35 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
     <title>Lucia Sangalli - Massofisioterapia</title>
+    
+    <!-- Meta tags per mobile ottimizzato -->
+    <meta name="theme-color" content="#fcf6ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Lucia Sangalli">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=yes">
+    
+    <!-- Preconnect per performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Font loading optimization per mobile -->
+    <style>
+        /* Font loading fallback per mobile */
+        @media (max-width: 768px) {
+            body {
+                font-display: swap;
+            }
+        }
+    </style>
     
     <style>
         /* Luxury Palette - Stile di Base & Font */
@@ -47,6 +70,23 @@
         img {
             max-width: 100%;
             height: auto;
+            /* Ottimizzazioni mobile per immagini */
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+        
+        /* Ottimizzazioni performance mobile */
+        @media (max-width: 768px) {
+            * {
+                /* Riduce il lavoro del browser su mobile */
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            
+            /* Lazy loading per immagini non critiche */
+            img[loading="lazy"] {
+                content-visibility: auto;
+            }
         }
         
         /* Optimize animations for users who prefer reduced motion */
@@ -66,12 +106,24 @@
             background-color: var(--primary-color);
             line-height: 1.6;
             overflow-x: hidden;
+            /* Ottimizzazioni mobile */
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
 
         .container {
             max-width: 100%;
             margin: 0 auto;
             padding: 1rem;
+        }
+        
+        /* Ottimizzazioni mobile per container */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0.8rem;
+                margin: 0 auto;
+            }
         }
 
         h1, h2, h3 {
@@ -95,10 +147,53 @@
         p {
             font-size: clamp(0.9rem, 2.5vw, 1rem);
         }
+        
+        /* Ottimizzazioni mobile per tipografia */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: clamp(1.8rem, 8vw, 2.2rem);
+                line-height: 1.2;
+            }
+            
+            h2 {
+                font-size: clamp(1.6rem, 6vw, 1.8rem);
+                line-height: 1.3;
+            }
+            
+            h3 {
+                font-size: clamp(1.3rem, 5vw, 1.5rem);
+                line-height: 1.4;
+            }
+            
+            p {
+                font-size: clamp(1rem, 4vw, 1.1rem);
+                line-height: 1.6;
+            }
+        }
 
         a {
             text-decoration: none;
             color: var(--text-dark);
+            /* Ottimizzazioni mobile e accessibilità */
+            -webkit-tap-highlight-color: rgba(212, 175, 55, 0.3);
+            touch-action: manipulation;
+        }
+        
+        /* Focus styles per accessibilità */
+        button:focus,
+        a:focus,
+        input:focus,
+        textarea:focus {
+            outline: 2px solid var(--oro-luxury);
+            outline-offset: 2px;
+        }
+        
+        /* Remove focus outline per mouse users */
+        .mouse-user button:focus,
+        .mouse-user a:focus,
+        .mouse-user input:focus,
+        .mouse-user textarea:focus {
+            outline: none;
         }
 
         /* Pulsanti con effetto 3D moderno - Colore secondario scuro */
@@ -119,6 +214,24 @@
             transition: var(--transition-3d);
             box-shadow: 0 5px 15px rgba(243, 198, 191, 0.3);
             border: 2px solid transparent;
+            /* Touch-friendly sizing */
+            min-height: 44px;
+            min-width: 44px;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        
+        /* Ottimizzazioni mobile per pulsanti */
+        @media (max-width: 768px) {
+            .cta-button {
+                padding: 16px 32px;
+                font-size: 1.1rem;
+                border-radius: 50px;
+                margin-top: 20px;
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
         }
 
         .cta-button::before {
@@ -134,18 +247,31 @@
             transition: var(--transition-3d);
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(243, 198, 191, 0.4);
-            border-color: #f3c6bf;
+        /* Hover effects solo per dispositivi con hover */
+        @media (hover: hover) {
+            .cta-button:hover {
+                transform: translateY(-3px) scale(1.02);
+                box-shadow: 0 8px 25px rgba(243, 198, 191, 0.4);
+                border-color: #f3c6bf;
+            }
+
+            .cta-button:hover::before {
+                opacity: 1;
+            }
         }
 
-        .cta-button:hover::before {
-            opacity: 1;
-        }
-
+        /* Active effects per tutti i dispositivi */
         .cta-button:active {
-            transform: translateY(1px);
+            transform: translateY(1px) scale(0.98);
+            transition: transform 0.1s ease;
+        }
+        
+        /* Touch feedback per mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .cta-button:active {
+                background: #e8b3ab;
+                transform: scale(0.98);
+            }
         }
 
         /* Effetto Glassmorphism con palette aggiornata */
@@ -161,11 +287,22 @@
             transition: var(--transition-3d);
         }
 
-        .glass-effect:hover {
-            box-shadow: var(--card-shadow-hover);
-            transform: translateY(-5px);
-            backdrop-filter: blur(16px) saturate(200%);
-            border-color: rgba(243, 198, 191, 0.3);
+        /* Hover effects per glass solo su dispositivi con hover */
+        @media (hover: hover) {
+            .glass-effect:hover {
+                box-shadow: var(--card-shadow-hover);
+                transform: translateY(-5px);
+                backdrop-filter: blur(16px) saturate(200%);
+                border-color: rgba(243, 198, 191, 0.3);
+            }
+        }
+        
+        /* Touch feedback per glass su mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .glass-effect:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease;
+            }
         }
 
         
@@ -181,6 +318,27 @@
             backdrop-filter: blur(10px);
             transition: all 0.4s ease;
             box-shadow: 0 2px 10px rgba(243, 198, 191, 0.1);
+        }
+        
+        /* Ottimizzazioni mobile per header */
+        @media (max-width: 768px) {
+            .header {
+                padding: 0.8rem 1rem;
+                background: rgba(252, 239, 254, 0.95);
+                backdrop-filter: blur(15px);
+            }
+            
+            .logo-img {
+                height: 60px;
+            }
+            
+            .logo-text .name {
+                font-size: 1.5rem;
+            }
+            
+            .logo-text .profession {
+                font-size: 0.7rem;
+            }
         }
 
         .header.scrolled {
@@ -291,6 +449,38 @@
             background-attachment: scroll;
         }
         
+        /* Ottimizzazioni mobile per hero */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 90vh;
+                padding: 4rem 1rem 2rem;
+                background-position: center center;
+            }
+            
+            .hero .glass-overlay {
+                padding: 2rem 1.5rem;
+                border-radius: 30px;
+                max-width: 95%;
+                margin: 0 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: clamp(1.8rem, 8vw, 2.5rem);
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero p {
+                font-size: clamp(1.1rem, 4vw, 1.3rem);
+                margin-bottom: 2rem;
+            }
+            
+            .hero .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+                border-radius: 50px;
+            }
+        }
+        
 
 
         .hero::before {
@@ -338,6 +528,34 @@
             position: relative;
             overflow: hidden;
             background: var(--white);
+        }
+        
+        /* Ottimizzazioni mobile per about */
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 2rem 0;
+            }
+            
+            .about-content {
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+            
+            .about-image {
+                border-radius: 15px;
+                border-width: 2px;
+            }
+            
+            .about-text h2 {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+            
+            .about-text p {
+                font-size: 1rem;
+                text-align: center;
+                line-height: 1.7;
+            }
         }
 
         .about-section::before {
@@ -412,11 +630,11 @@
 
         /* Services Section - Mobile First */
         .services-section {
-            padding: 3rem 0;
+            padding: 2rem 0;
             background: url('hero.png') no-repeat center right/cover;
             background-attachment: scroll;
             position: relative;
-            min-height: 80vh;
+            min-height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -474,7 +692,7 @@
             text-align: center;
         }
         
-        /* Carosello 3D */
+        /* Carosello 3D - Nascosto su mobile */
         .services-carousel-container {
             width: 100%;
             height: 60vh;
@@ -485,6 +703,30 @@
             align-items: center;
             perspective: 1200px;
             margin: 2rem 0;
+        }
+        
+        /* Nascondi solo la sezione servizi (carosello) su mobile */
+        @media (max-width: 768px) {
+            .services-carousel-container {
+                display: none;
+            }
+            
+            .services-section {
+                display: none;
+            }
+            
+            .services-glass-overlay {
+                display: none;
+            }
+            
+            /* Mantieni visibile la sezione cart su mobile */
+            .cart-section {
+                display: block;
+            }
+            
+            .cart-glass-overlay {
+                display: block;
+            }
         }
 
         .services-carousel {
@@ -746,6 +988,33 @@
             position: relative;
             border-top: 3px solid var(--oro-luxury);
         }
+        
+        /* Ottimizzazioni mobile per footer */
+        @media (max-width: 768px) {
+            .footer {
+                padding: 2rem 0 1rem;
+            }
+            
+            .footer .container {
+                padding: 0 1rem;
+            }
+            
+            .social-links {
+                gap: 1.5rem;
+                margin: 1.5rem 0;
+            }
+            
+            .social-links a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .footer p {
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
+            }
+        }
 
         .footer::before {
             content: '';
@@ -779,6 +1048,16 @@
             transition: var(--transition-3d);
             box-shadow: 0 4px 8px rgba(243, 198, 191, 0.3);
             border: 2px solid transparent;
+        }
+        
+        /* Ottimizzazioni mobile per social links */
+        @media (max-width: 768px) {
+            .social-links a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+                box-shadow: 0 6px 12px rgba(243, 198, 191, 0.4);
+            }
         }
 
         .social-links a:hover {
@@ -824,11 +1103,15 @@
                 flex-direction: row;
                 position: static;
                 width: auto;
+                height: auto;
                 background: transparent;
                 backdrop-filter: none;
                 padding: 0;
                 box-shadow: none;
                 border-radius: 0;
+                transform: none;
+                transition: none;
+                z-index: auto;
             }
             
             .nav-menu li {
@@ -836,15 +1119,23 @@
                 padding: 0;
                 border-bottom: none;
                 text-align: left;
+                opacity: 1;
+                animation: none;
             }
             
             .nav-menu a {
                 font-size: 1.2rem;
                 padding: 0.5rem 0;
+                font-family: 'Cormorant Garamond', serif;
+                font-weight: 500;
             }
             
             .hamburger {
-                display: none;
+                display: none !important;
+            }
+            
+            .menu-overlay {
+                display: none !important;
             }
             
             /* Layout adjustments */
@@ -888,6 +1179,28 @@
                 padding: 4rem 0;
             }
             
+            /* Ottimizzazioni desktop per dropdown */
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 2.5rem;
+            }
+            
+            .service-card-dropdown {
+                border-radius: 25px;
+            }
+            
+            .service-header {
+                padding: 2rem;
+            }
+            
+            .service-header h3 {
+                font-size: 1.5rem;
+            }
+            
+            .service-icon-main {
+                font-size: 2.5rem;
+            }
+            
             .services-section .container {
                 padding: 3rem 1.5rem;
             }
@@ -897,6 +1210,32 @@
                 border-radius: 320px;
                 width: 85%;
                 min-height: 65vh;
+            }
+            
+            /* Mostra carosello e sezioni servizi solo su desktop */
+            .services-carousel-container {
+                display: flex !important;
+            }
+            
+            .services-section {
+                display: block !important;
+            }
+            
+            .services-glass-overlay {
+                display: block !important;
+            }
+            
+            /* Cart sempre visibile su tutti i dispositivi */
+            .cart-section {
+                display: block !important;
+            }
+            
+            .cart-glass-overlay {
+                display: block !important;
+            }
+            
+            .services-grid {
+                display: grid !important;
             }
             
             /* Hero adjustments */
@@ -916,10 +1255,32 @@
                 padding: 3.5rem 0 1.25rem;
             }
             
+            /* Ottimizzazioni desktop per cart */
+            .cart-glass-overlay {
+                max-width: 1200px;
+                padding: 3rem;
+            }
+            
+            .cart-summary {
+                padding: 2.5rem;
+                border-radius: 25px;
+            }
+            
+            .whatsapp-button {
+                padding: 1.2rem 3rem;
+                font-size: 1.2rem;
+            }
+            
             .social-links a {
                 width: 42px;
                 height: 42px;
                 font-size: 1.1rem;
+            }
+            
+            /* Ottimizzazioni desktop per social */
+            .social-links {
+                gap: 1.5rem;
+                margin: 2.5rem 0;
             }
         }
         
@@ -983,11 +1344,50 @@
                 padding: 4rem 2rem;
             }
             
+            /* Ottimizzazioni desktop grande per dropdown */
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                gap: 3rem;
+            }
+            
+            .service-card-dropdown {
+                border-radius: 30px;
+            }
+            
+            .service-header {
+                padding: 2.5rem;
+            }
+            
+            .service-header h3 {
+                font-size: 1.8rem;
+            }
+            
+            .service-icon-main {
+                font-size: 3rem;
+            }
+            
             .services-glass-overlay {
                 padding: 3rem 2rem;
                 border-radius: 40px;
                 width: 80%;
                 min-height: 70vh;
+                display: block !important;
+            }
+            
+            /* Ottimizzazioni desktop grande per cart */
+            .cart-glass-overlay {
+                max-width: 1400px;
+                padding: 4rem;
+            }
+            
+            .cart-summary {
+                padding: 3rem;
+                border-radius: 30px;
+            }
+            
+            .whatsapp-button {
+                padding: 1.5rem 4rem;
+                font-size: 1.3rem;
             }
             
             /* Hero */
@@ -1001,6 +1401,17 @@
                 max-width: 70%;
             }
             
+            /* Ottimizzazioni desktop grande per hero */
+            .hero h1 {
+                font-size: clamp(3rem, 6vw, 4.5rem);
+                letter-spacing: 2px;
+            }
+            
+            .hero p {
+                font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+                letter-spacing: 1px;
+            }
+            
             /* Footer */
             .footer {
                 padding: 4rem 0 1.5rem;
@@ -1011,13 +1422,70 @@
                 height: 45px;
                 font-size: 1.2rem;
             }
+            
+            /* Ottimizzazioni desktop grande per footer */
+            .social-links {
+                gap: 2rem;
+                margin: 3rem 0;
+            }
         }
         
-        /* ===== MOBILE-SPECIFIC STYLES ===== */
+        /* ===== MOBILE-FIRST STYLES ===== */
         
-        /* Hamburger menu - always visible on mobile */
+        /* Hamburger menu - sempre visibile su mobile */
         .hamburger {
             display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 25px;
+            position: relative;
+            z-index: 1001;
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+        
+        .bar {
+            display: block;
+            width: 100%;
+            height: 3px;
+            margin: 5px 0;
+            background-color: var(--oro-luxury);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform-origin: center;
+            border-radius: 2px;
+        }
+        
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        
+        /* Menu overlay per mobile */
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .menu-overlay.active {
+            display: block;
+            opacity: 1;
         }
         
         /* Mobile navigation menu */
@@ -1028,27 +1496,40 @@
             position: fixed;
             top: 0;
             right: 0;
-            width: 70%;
+            width: 80%;
             height: 100vh;
-            background: rgba(252, 239, 254, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 80px 20px 20px;
+            background: rgba(252, 239, 254, 0.98);
+            backdrop-filter: blur(15px);
+            padding: 100px 20px 20px;
             text-align: center;
-            box-shadow: -5px 0 15px rgba(243, 198, 191, 0.1);
+            box-shadow: -5px 0 20px rgba(243, 198, 191, 0.2);
             transform: translateX(100%);
             transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: 1000;
         }
         
         .nav-menu.active {
             display: flex;
+            transform: translateX(0);
         }
         
         .nav-menu li {
             margin: 0;
             text-align: center;
-            padding: 0.75rem 0;
+            padding: 1rem 0;
             border-bottom: 1px solid rgba(243, 198, 191, 0.2);
+            opacity: 0;
+            animation: slideInRight 0.5s ease forwards;
         }
+        
+        .nav-menu li:nth-child(1) { animation-delay: 0.1s; }
+        .nav-menu li:nth-child(2) { animation-delay: 0.2s; }
+        .nav-menu li:nth-child(3) { animation-delay: 0.3s; }
+        .nav-menu li:nth-child(4) { animation-delay: 0.4s; }
+        .nav-menu li:nth-child(5) { animation-delay: 0.5s; }
+        .nav-menu li:nth-child(6) { animation-delay: 0.6s; }
+        .nav-menu li:nth-child(7) { animation-delay: 0.7s; }
+        .nav-menu li:nth-child(8) { animation-delay: 0.8s; }
         
         .nav-menu li:last-child {
             border-bottom: none;
@@ -1056,11 +1537,11 @@
         
         .nav-menu a {
             font-family: 'Great Vibes', cursive;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: 400;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             position: relative;
-            padding: 0.5rem 1rem;
+            padding: 1rem 1.5rem;
             color: var(--text-dark);
             display: block;
         }
@@ -1069,23 +1550,37 @@
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
             width: 0;
-            height: 2px;
-            background-color: var(--oro-luxury);
+            height: 3px;
+            background: linear-gradient(90deg, var(--oro-luxury), var(--oro-light));
             transition: width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
         
         .nav-menu a:hover::after {
-            width: 100%;
+            width: 80%;
         }
         
         .nav-menu a:hover {
             color: var(--oro-luxury);
+            transform: translateY(-2px);
         }
         
         .nav-menu.active {
             transform: translateX(0);
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
         
 
@@ -1099,7 +1594,7 @@
             width: 100%;
             height: 100vh;
             background: rgba(93, 78, 55, 0.5);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);/*qui*/
             z-index: 999;
             opacity: 0;
             pointer-events: none;
@@ -1160,16 +1655,20 @@
         }
         
         .cart-glass-overlay {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
         
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
-            margin: 2rem 0;
+            margin: 2rem auto;
+            width: 100%;
+            max-width: 1200px;
         }
         
         .service-card-dropdown {
@@ -1179,6 +1678,9 @@
             overflow: hidden;
             transition: var(--transition-3d);
             border: 2px solid rgba(243, 198, 191, 0.3);
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .service-card-dropdown:hover {
@@ -1195,6 +1697,11 @@
             cursor: pointer;
             background: linear-gradient(135deg, rgba(243, 198, 191, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
             transition: var(--transition-3d);
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto 1rem auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
         
         .service-header:hover {
@@ -1202,8 +1709,25 @@
         }
         
         .service-header.active {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(243, 198, 191, 0.1) 100%);
-            border-bottom: 2px solid var(--oro-luxury);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(243, 198, 191, 0.15) 100%);
+            border: 2px solid var(--oro-luxury);
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+            z-index: 10;
+            position: relative;
+            margin: 0 auto 1rem auto;
+            animation: headerActive 0.3s ease-out;
+        }
+        
+        @keyframes headerActive {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            }
+            100% {
+                transform: scale(1.02);
+                box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+            }
         }
         
         .service-header h3 {
@@ -1254,10 +1778,13 @@
             overflow: hidden;
             transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             background: var(--white);
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
         
         .service-dropdown.active {
-            max-height: 600px;
+            max-height: 800px;
+            overflow: visible;
         }
         
         /* Animazione rapida per chiusura dropdown adiacenti */
@@ -1266,11 +1793,79 @@
         }
         
         .service-details {
-            padding: 1.5rem;
+            padding: 2rem;
+            min-height: 200px;
+            overflow: visible;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        /* Scrollbar solo quando necessario */
+        .service-details.has-scroll {
             max-height: 500px;
             overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: var(--oro-luxury) rgba(243, 198, 191, 0.3);
+        }
+        
+        /* Debug: mostra sempre i contenuti */
+        .service-dropdown.active .service-details {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            height: auto !important;
+            min-height: 200px !important;
+        }
+        
+        /* Assicura che i dropdown attivi siano sempre visibili */
+        .service-dropdown.active {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            height: auto !important;
+            min-height: 300px !important;
+        }
+        
+        /* Ottimizzazioni mobile per container tabelle - COMPATTE */
+        @media (max-width: 768px) {
+            .service-details {
+                padding: 1rem 0.8rem;
+                overflow: visible;
+                background: rgba(255, 255, 255, 0.98);
+                border-radius: 12px;
+                margin: 0.5rem;
+                min-height: 120px;
+            }
+            
+            .service-card-dropdown {
+                overflow: visible;
+                margin-bottom: 1rem;
+            }
+            
+            .service-dropdown {
+                border-radius: 12px;
+                box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            }
+            
+            /* Ottimizzazioni mobile per header */
+            .service-header {
+                margin: 0 0.8rem 0.8rem 0.8rem;
+                padding: 1rem;
+                border-radius: 12px;
+            }
+            
+            .service-header.active {
+                transform: scale(1.005);
+                margin: 0 0.3rem 0.8rem 0.3rem;
+                box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            }
+            
+            .services-grid {
+                margin: 0.8rem auto;
+                gap: 1rem;
+            }
         }
         
         /* Styling per la scrollbar personalizzata */
@@ -1297,25 +1892,212 @@
             width: 100%;
             border-collapse: collapse;
             margin: 0;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
         }
         
         .service-table th,
         .service-table td {
-            padding: 0.75rem;
+            padding: 1rem;
             text-align: center;
             border-bottom: 1px solid rgba(243, 198, 191, 0.2);
+            vertical-align: middle;
+        }
+        
+        /* Ottimizzazioni mobile per tabelle - COMPATTE */
+        @media (max-width: 768px) {
+            .service-table {
+                width: 100%;
+                font-size: 0.75rem;
+                table-layout: fixed;
+                border-collapse: collapse;
+                margin: 0;
+                border-radius: 8px;
+                transform: scale(0.95);
+                transform-origin: top left;
+            }
+            
+            .service-table th,
+            .service-table td {
+                padding: 0.4rem 0.2rem;
+                word-wrap: break-word;
+                vertical-align: middle;
+                border: 1px solid rgba(243, 198, 191, 0.2);
+                line-height: 1.2;
+            }
+            
+            .service-table th:first-child,
+            .service-table td:first-child {
+                text-align: left;
+                padding-left: 0.5rem;
+                width: 50%;
+                font-size: 0.7rem;
+            }
+            
+            .service-table th:nth-child(2),
+            .service-table td:nth-child(2) {
+                text-align: center;
+                width: 25%;
+                font-size: 0.65rem;
+            }
+            
+            .service-table th:nth-child(3),
+            .service-table td:nth-child(3) {
+                text-align: center;
+                width: 25%;
+                font-size: 0.65rem;
+            }
+            
+            .service-table th:last-child,
+            .service-table td:last-child {
+                display: none;
+            }
+            
+            /* Migliora leggibilità su mobile */
+            .service-table th {
+                background: rgba(212, 175, 55, 0.25);
+                font-weight: 600;
+                color: var(--text-dark);
+                font-size: 0.75rem;
+                padding: 0.5rem 0.2rem;
+            }
+            
+            .service-table tr:nth-child(even) {
+                background: rgba(243, 198, 191, 0.08);
+            }
+            
+            .service-table tr:hover {
+                background: rgba(243, 198, 191, 0.15);
+            }
+            
+            /* Riduci spaziature generali */
+            .service-table tr {
+                height: auto;
+                min-height: 0;
+            }
+            
+            /* Ottimizzazioni per dispositivi molto piccoli */
+            @media (max-width: 480px) {
+                .service-table {
+                    font-size: 0.7rem;
+                    transform: scale(0.9);
+                    transform-origin: top left;
+                }
+                
+                .service-table th,
+                .service-table td {
+                    padding: 0.3rem 0.1rem;
+                }
+                
+                .service-table th:first-child,
+                .service-table td:first-child {
+                    padding-left: 0.3rem;
+                    font-size: 0.65rem;
+                    padding-bottom: 2rem;
+                }
+                
+                .service-table th:last-child,
+                .service-table td:last-child {
+                    display: none;
+                }
+                
+                .service-table .service-button-container {
+                    bottom: 0.2rem;
+                }
+                
+                .select-service-btn {
+                    padding: 0.3rem 0.6rem;
+                    font-size: 0.7rem;
+                    min-height: 28px;
+                    min-width: 60px;
+                }
+                
+                .service-details {
+                    padding: 0.8rem 0.5rem;
+                    margin: 0.3rem;
+                }
+                
+                .service-header {
+                    margin: 0 0.5rem 0.5rem 0.5rem;
+                    padding: 0.8rem;
+                }
+            }
         }
         
         .service-table th {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(212, 175, 55, 0.2);
             color: var(--text-dark);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            border-bottom: 2px solid var(--oro-luxury);
+            padding: 1.2rem 1rem;
         }
         
         .service-table td {
             color: var(--text-medium);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(243, 198, 191, 0.2);
+            padding: 1rem;
+        }
+        
+        .service-table tr:hover {
+            background: rgba(243, 198, 191, 0.05);
+        }
+        
+        .service-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Posizionamento pulsanti sotto il nome del servizio */
+        .service-table td:first-child {
+            position: relative;
+            padding-bottom: 3rem;
+        }
+        
+        .service-table .service-name-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .service-table .service-name {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .service-table .service-button-container {
+            position: absolute;
+            bottom: 0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+        }
+        
+        /* Garantisce visibilità delle tabelle */
+        .service-table {
+            display: table !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        
+        .service-table th,
+        .service-table td {
+            display: table-cell !important;
+            visibility: visible !important;
+        }
+        
+        /* Migliora la leggibilità generale */
+        .service-table caption {
+            display: none;
+        }
+        
+        /* Assicura che le righe siano sempre visibili */
+        .service-table tr {
+            display: table-row !important;
+            visibility: visible !important;
         }
         
         .service-table tr:hover {
@@ -1327,18 +2109,49 @@
             color: white;
             border: none;
             padding: 0.5rem 1rem;
-            border-radius: 25px;
+            border-radius: 20px;
             cursor: pointer;
             font-size: 0.8rem;
-            font-weight: 500;
+            font-weight: 600;
             transition: var(--transition-3d);
             font-family: 'Cormorant Garamond', serif;
+            /* Touch-friendly sizing */
+            min-height: 36px;
+            min-width: 80px;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+            position: relative;
+            z-index: 5;
+            white-space: nowrap;
         }
         
-        .select-service-btn:hover {
-            background: var(--oro-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        /* Stile per pulsante deselezionato */
+        .select-service-btn.deselect {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .select-service-btn.deselect:hover {
+            background: #c82333;
+        }
+        
+        /* Hover effects per service buttons solo su dispositivi con hover */
+        @media (hover: hover) {
+            .select-service-btn:hover {
+                background: var(--oro-dark);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            }
+        }
+        
+        /* Touch feedback per service buttons su mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .select-service-btn:active {
+                background: var(--oro-dark);
+                transform: scale(0.95);
+                transition: all 0.1s ease;
+            }
         }
         
         .select-service-btn.selected {
@@ -1349,6 +2162,16 @@
         .select-service-btn.selected::after {
             content: '✓';
             margin-left: 0.5rem;
+        }
+        
+        /* Rimuovi stili conflittuali */
+        .select-service-btn.selected.deselect {
+            background: #dc3545 !important;
+            pointer-events: auto;
+        }
+        
+        .select-service-btn.selected.deselect::after {
+            content: none;
         }
         
         .cart-summary {
@@ -1450,12 +2273,29 @@
             transition: var(--transition-3d);
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
             font-family: 'Cormorant Garamond', serif;
+            /* Touch-friendly sizing */
+            min-height: 56px;
+            justify-content: center;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
         
-        .whatsapp-button:hover:not(:disabled) {
-            background: #128C7E;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        /* Hover effects per WhatsApp button solo su dispositivi con hover */
+        @media (hover: hover) {
+            .whatsapp-button:hover:not(:disabled) {
+                background: #128C7E;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            }
+        }
+        
+        /* Touch feedback per WhatsApp button su mobile */
+        @media (hover: none) and (pointer: coarse) {
+            .whatsapp-button:active:not(:disabled) {
+                background: #128C7E;
+                transform: scale(0.95);
+                transition: all 0.1s ease;
+            }
         }
         
         .whatsapp-button:disabled {
@@ -1534,66 +2374,228 @@
         
         /* Mobile responsive adjustments for dropdown system */
         @media (max-width: 768px) {
+            /* Mantieni visibile la sezione cart (prenota) su mobile */
+            .cart-section {
+                display: block;
+            }
+            
+            .cart-glass-overlay {
+                display: block;
+            }
+            
+            /* Mostra i dropdown dei servizi su mobile */
             .services-grid {
+                display: grid;
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 1rem;
+                margin: 1rem 0;
+            }
+            
+            .service-card-dropdown {
+                margin: 0 0.5rem;
+                border-radius: 15px;
             }
             
             .service-header {
-                padding: 1rem;
+                padding: 1.2rem;
                 flex-direction: column;
                 text-align: center;
-                gap: 0.5rem;
+                gap: 0.8rem;
+                border-radius: 15px 15px 0 0;
             }
             
             .service-header h3 {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
+                margin: 0;
             }
             
             .service-icon-main {
                 margin-right: 0;
-                margin-bottom: 0.5rem;
+                margin-bottom: 0;
+                font-size: 2.5rem;
             }
             
             .dropdown-arrow {
                 position: absolute;
-                top: 1rem;
-                right: 1rem;
+                top: 1.2rem;
+                right: 1.2rem;
+                font-size: 1.4rem;
             }
             
             .service-details {
-                padding: 1rem;
+                padding: 1.2rem;
                 max-height: none;
-                overflow-y: visible;
+                overflow: visible;
+                min-height: 200px;
             }
             
             .service-table {
-                font-size: 0.8rem;
+                font-size: 0.9rem;
             }
             
             .service-table th,
             .service-table td {
-                padding: 0.5rem 0.25rem;
+                padding: 0.8rem 0.5rem;
             }
             
             .select-service-btn {
                 padding: 0.4rem 0.8rem;
                 font-size: 0.75rem;
+                border-radius: 18px;
+                min-height: 32px;
+                min-width: 70px;
+                font-weight: 600;
+            }
+            
+            /* Ottimizzazioni per pulsanti in nuova posizione */
+            .service-table td:first-child {
+                padding-bottom: 2.5rem;
+            }
+            
+            .service-table .service-button-container {
+                bottom: 0.3rem;
+            }
+            
+            /* Stili per pulsanti deselezionati su mobile */
+            .select-service-btn.deselect {
+                background: #dc3545 !important;
+                color: white !important;
+            }
+            
+            .select-service-btn.deselect:active {
+                background: #c82333 !important;
+                transform: scale(0.95);
             }
             
             .cart-summary {
                 padding: 1.5rem;
+                margin: 1rem 0.5rem;
+                border-radius: 20px;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+            }
+            
+            /* Migliora visualizzazione servizi selezionati su mobile */
+            .selected-service-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem;
+                margin: 0.8rem 0;
+                background: rgba(243, 198, 191, 0.1);
+                border-radius: 15px;
+                border-left: 4px solid var(--oro-luxury);
+                transition: all 0.3s ease;
+            }
+            
+            .selected-service-item:hover {
+                background: rgba(243, 198, 191, 0.15);
+                transform: translateX(5px);
+            }
+            
+            .selected-service-name {
+                font-weight: 600;
+                color: var(--text-dark);
+                font-size: 1rem;
+            }
+            
+            .selected-service-duration {
+                display: block;
+                font-size: 0.8rem;
+                color: var(--text-medium);
+                margin-top: 0.2rem;
+            }
+            
+            .selected-service-price {
+                font-weight: 600;
+                color: var(--oro-luxury);
+                font-size: 1.1rem;
+            }
+            
+            /* Stili per i pulsanti di rimozione */
+            .selected-service-actions {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .remove-service-btn {
+                background: #dc3545;
+                color: white;
+                border: none;
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.8rem;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+                -webkit-tap-highlight-color: transparent;
+                touch-action: manipulation;
+            }
+            
+            .remove-service-btn:hover {
+                background: #c82333;
+                transform: scale(1.1);
+                box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+            }
+            
+            .remove-service-btn:active {
+                transform: scale(0.95);
+            }
+            
+            /* Ottimizzazioni mobile per pulsanti di rimozione */
+            @media (max-width: 768px) {
+                .remove-service-btn {
+                    width: 32px;
+                    height: 32px;
+                    font-size: 0.9rem;
+                }
+                
+                .selected-service-actions {
+                    gap: 0.8rem;
+                }
+                
+                .selected-service-item {
+                    padding: 1rem;
+                }
             }
             
             .total-section {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.2rem;
                 text-align: center;
             }
             
             .whatsapp-button {
                 width: 100%;
                 justify-content: center;
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+                border-radius: 50px;
+            }
+            
+            /* Ottimizzazioni mobile per il cart */
+            .cart-glass-overlay {
+                margin: 0 1rem;
+                padding: 1.5rem;
+            }
+            
+            .cart-section {
+                padding: 2rem 0;
+            }
+            
+            /* Nascondi scrollbar su mobile */
+            .service-details::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .service-details {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
             }
         }
     </style>
@@ -1669,25 +2671,25 @@
                                 <i class="fas fa-hand-holding-heart service-icon"></i>
                                 <h3>Trattamenti</h3>
                                 <p>Trattamenti mirati per la cura della persona.</p>
-                                <a href="pacchettiTrattamenti.html" class="cta-button">Prenota</a>
+                                <a href="pacchettiTrattamenti.html" class="cta-button">Scopri</a>
                             </div>
                             <div class="service-card">
                                 <i class="fas fa-water service-icon"></i>
                                 <h3>Linfodrenaggio</h3>
                                 <p>Massaggi delicati per favorire la circolazione linfatica e ridurre i gonfiori.</p>
-                                <a href="#contact" class="cta-button">Prenota</a>
+                                <a href="#contact" class="cta-button">Scopri</a>
                             </div>
                             <div class="service-card">
                                 <i class="fas fa-running service-icon"></i>
                                 <h3>Promozioni Autunno 2025</h3>
                                 <p>Non lasciarti scappare questa offerta!.</p>
-                                <a href="PromozioniAutunno25.html" class="cta-button">Prenota</a>
+                                <a href="PromozioniAutunno25.html" class="cta-button">Scopri</a>
                             </div>
                             <div class="service-card">
                                 <i class="fas fa-spa service-icon"></i>
                                 <h3>Rituali</h3>
                                 <p>Massaggi rilassanti per ridurre lo stress e migliorare la qualità del sonno.</p>
-                                <a href="rituali.html" class="cta-button">Prenota</a>
+                                <a href="rituali.html" class="cta-button">Scopri</a>
                             </div>
                         </div>
                     </div>
@@ -1767,12 +2769,26 @@
                     <p>"I massaggi di Lucia sono una vera rinascita! Dopo ogni seduta mi sento rigenerata, sia fisicamente che mentalmente. Consigliatissima!"</p>
                     <cite>- Giulia Bianchi</cite>
                 </div>
+                <div class="testimonial">
+                    <p>"Come atleta, ho bisogno di trattamenti specifici e competenti. Lucia ha dimostrato grande professionalità nel seguirmi nel recupero da un infortunio."</p>
+                    <cite>- Andrea Neri</cite>
+                </div>
             </div>
         </section>
         
         <section id="contact" class="contact-section">
             <div class="container contact-content">
-                
+                <div class="contact-form glass-effect">
+                    <h2>Contattami</h2>
+                    <p>Compila il form o chiamami per fissare il tuo appuntamento.</p>
+                    <form action="#" method="POST">
+                        <input type="text" name="name" placeholder="Il tuo nome" required>
+                        <input type="email" name="email" placeholder="La tua email" required>
+                        <input type="tel" name="phone" placeholder="Il tuo telefono">
+                        <textarea name="message" placeholder="Il tuo messaggio" rows="4" required></textarea>
+                        <button type="submit" class="cta-button">Invia Messaggio</button>
+                    </form>
+                </div>
                 <div class="contact-info glass-effect">
                     <h2>Dove trovarmi</h2>
                     <p><strong>Indirizzo:</strong> Via Alcide, 32 - 24048 Treviolo (Bergamo)</p>
@@ -1807,6 +2823,44 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Rilevamento input method per ottimizzazioni mobile
+            let isUsingMouse = false;
+            
+            // Rileva il primo movimento del mouse
+            document.addEventListener('mousemove', function() {
+                if (!isUsingMouse) {
+                    isUsingMouse = true;
+                    document.body.classList.add('mouse-user');
+                }
+            }, { once: true });
+            
+            // Rileva il primo touch
+            document.addEventListener('touchstart', function() {
+                if (isUsingMouse) {
+                    document.body.classList.remove('mouse-user');
+                    isUsingMouse = false;
+                }
+            });
+            
+            // Ottimizzazioni mobile aggiuntive
+            if (/Mobi|Android/i.test(navigator.userAgent)) {
+                document.body.classList.add('mobile-device');
+                
+                // Previeni il bounce su iOS
+                document.addEventListener('touchmove', function(e) {
+                    if (e.touches.length > 1) {
+                        e.preventDefault();
+                    }
+                }, { passive: false });
+                
+                // Ottimizza viewport su dispositivi mobili
+                const viewport = document.querySelector('meta[name="viewport"]');
+                if (viewport && window.innerHeight < window.innerWidth) {
+                    // Landscape mode
+                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no, orientation=landscape');
+                }
+            }
+            
             // Mobile Menu
             const hamburger = document.getElementById('hamburger');
             const navMenu = document.getElementById('navMenu');
@@ -2213,7 +3267,6 @@
                                                     <th>Servizio</th>
                                                     <th>Durata</th>
                                                     <th>Prezzo</th>
-                                                    <th>Seleziona</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -2224,10 +3277,16 @@
                             const durationDisplay = service.duration || '-';
                             html += `
                                 <tr data-service="${service.name}" data-price="${service.price}" data-duration="${service.duration}">
-                                    <td>${service.name}</td>
+                                    <td>
+                                        <div class="service-name-container">
+                                            <span class="service-name">${service.name}</span>
+                                            <div class="service-button-container">
+                                                <button class="select-service-btn" data-service="${serviceId}" data-price="${service.price}">Aggiungi</button>
+                                            </div>
+                                        </div>
+                                    </td>
                                     <td>${durationDisplay}</td>
                                     <td>€${service.price}</td>
-                                    <td><button class="select-service-btn" data-service="${serviceId}" data-price="${service.price}">Aggiungi</button></td>
                                 </tr>
                             `;
                         });
@@ -2278,6 +3337,9 @@
                     
                     // Verifica che lo stato iniziale sia corretto
                     this.ensureSingleDropdownOpen();
+                    
+                    // Aggiorna lo stato dei pulsanti dopo aver caricato i servizi
+                    this.updateButtonStates();
                 }
                 
                 // I metodi restanti rimangono invariati
@@ -2374,21 +3436,23 @@
                     if (btn.classList.contains('selected')) {
                         // Remove service
                         this.removeService(serviceName, servicePrice);
-                        btn.classList.remove('selected');
-                        btn.textContent = 'Aggiungi';
+                        // Non aggiornare qui il pulsante, lo farà updateButtonStates
                     } else {
                         // Add service
                         this.addService(serviceName, servicePrice, serviceDuration);
-                        btn.classList.add('selected');
-                        btn.textContent = 'Selezionato';
+                        // Non aggiornare qui il pulsante, lo farà updateButtonStates
                     }
                     
                     this.updateCart();
                 }
                 
                 addService(name, price, duration) {
-                    this.selectedServices.push({ name, price, duration });
-                    this.total += price;
+                    // Controlla se il servizio è già presente
+                    const existingIndex = this.selectedServices.findIndex(service => service.name === name);
+                    if (existingIndex === -1) {
+                        this.selectedServices.push({ name, price, duration });
+                        this.total += price;
+                    }
                 }
                 
                 removeService(name, price) {
@@ -2405,18 +3469,29 @@
                         this.totalAmount.textContent = '€0';
                         this.whatsappBtn.disabled = true;
                     } else {
-                        this.selectedServicesList.innerHTML = this.selectedServices.map(service => `
-                            <div class="selected-service-item">
+                        this.selectedServicesList.innerHTML = this.selectedServices.map((service, index) => `
+                            <div class="selected-service-item" data-service-index="${index}">
                                 <div class="selected-service-info">
                                     <span class="selected-service-name">${service.name}</span>
                                     <span class="selected-service-duration">${service.duration || ''}</span>
                                 </div>
-                                <span class="selected-service-price">€${service.price}</span>
+                                <div class="selected-service-actions">
+                                    <span class="selected-service-price">€${service.price}</span>
+                                    <button class="remove-service-btn" data-service-index="${index}" data-service-name="${service.name}" data-service-price="${service.price}">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
                             </div>
                         `).join('');
                         this.totalAmount.textContent = `€${this.total}`;
                         this.whatsappBtn.disabled = false;
+                        
+                        // Aggiungi event listener per i pulsanti di rimozione
+                        this.bindRemoveButtons();
                     }
+                    
+                    // Aggiorna lo stato dei pulsanti per mantenere la sincronizzazione
+                    this.updateButtonStates();
                 }
                 
                 generateWhatsAppMessage() {
@@ -2458,8 +3533,10 @@
                     // Reset all buttons
                     if (this.selectServiceBtns) {
                         this.selectServiceBtns.forEach(btn => {
-                            btn.classList.remove('selected');
+                            btn.classList.remove('selected', 'deselect');
                             btn.textContent = 'Aggiungi';
+                            btn.style.background = '';
+                            btn.style.color = 'white';
                         });
                     }
                     
@@ -2512,6 +3589,60 @@
                     if (activeDropdowns > 1 || activeHeaders > 1) {
                         this.closeAllDropdowns();
                     }
+                }
+                
+                // Metodo per aggiornare lo stato dei pulsanti in base ai servizi selezionati
+                updateButtonStates() {
+                    if (!this.selectServiceBtns) return;
+                    
+                    this.selectServiceBtns.forEach(btn => {
+                        const btnRow = btn.closest('tr');
+                        if (btnRow && btnRow.dataset.service) {
+                            const serviceName = btnRow.dataset.service;
+                            const isSelected = this.selectedServices.some(service => service.name === serviceName);
+                            
+                            if (isSelected) {
+                                btn.classList.add('selected', 'deselect');
+                                btn.textContent = 'Rimuovi';
+                                btn.style.background = '#dc3545';
+                                btn.style.color = 'white';
+                            } else {
+                                btn.classList.remove('selected', 'deselect');
+                                btn.textContent = 'Aggiungi';
+                                btn.style.background = '';
+                                btn.style.color = 'white';
+                            }
+                        }
+                    });
+                }
+                
+                // Metodo per gestire i pulsanti di rimozione
+                bindRemoveButtons() {
+                    const removeButtons = document.querySelectorAll('.remove-service-btn');
+                    removeButtons.forEach(btn => {
+                        btn.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const serviceIndex = parseInt(btn.dataset.serviceIndex);
+                            const serviceName = btn.dataset.serviceName;
+                            const servicePrice = parseInt(btn.dataset.servicePrice);
+                            
+                            // Rimuovi il servizio dal carrello
+                            this.removeServiceFromCart(serviceIndex, serviceName, servicePrice);
+                        });
+                    });
+                }
+                
+                // Metodo per rimuovere un servizio specifico dal carrello
+                removeServiceFromCart(index, serviceName, servicePrice) {
+                    // Rimuovi dal carrello
+                    this.selectedServices.splice(index, 1);
+                    this.total -= servicePrice;
+                    
+                    // Aggiorna la visualizzazione
+                    this.updateCart();
+                    
+                    // Aggiorna lo stato dei pulsanti nelle tabelle
+                    this.updateButtonStates();
                 }
             }
             
