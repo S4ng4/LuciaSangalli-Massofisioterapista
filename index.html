@@ -987,6 +987,7 @@
             color: var(--text-dark);
             position: relative;
             border-top: 3px solid var(--oro-luxury);
+            overflow: visible;
         }
         
         /* Ottimizzazioni mobile per footer */
@@ -1029,14 +1030,18 @@
         }
 
         .social-links {
-            display: flex;
+            display: flex !important;
             justify-content: center;
             gap: 1rem;
             margin: 2rem 0;
+            visibility: visible !important;
+            opacity: 1 !important;
+            z-index: 1000;
+            position: relative;
         }
 
         .social-links a {
-            display: flex;
+            display: flex !important;
             align-items: center;
             justify-content: center;
             width: clamp(40px, 10vw, 45px);
@@ -1048,15 +1053,29 @@
             transition: var(--transition-3d);
             box-shadow: 0 4px 8px rgba(243, 198, 191, 0.3);
             border: 2px solid transparent;
+            visibility: visible !important;
+            opacity: 1 !important;
+            z-index: 1001;
         }
         
         /* Ottimizzazioni mobile per social links */
         @media (max-width: 768px) {
+            .social-links {
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                z-index: 1000;
+            }
+            
             .social-links a {
                 width: 50px;
                 height: 50px;
                 font-size: 1.3rem;
                 box-shadow: 0 6px 12px rgba(243, 198, 191, 0.4);
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                z-index: 1001;
             }
         }
 
@@ -1066,6 +1085,20 @@
             border-color: var(--oro-luxury);
             transform: translateY(-5px) scale(1.1);
             box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        /* Regole di emergenza per garantire visibilità social */
+        .social-links,
+        .social-links * {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        
+        .social-links a {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
 
         /* ===== MOBILE-FIRST RESPONSIVE DESIGN ===== */
@@ -1275,12 +1308,20 @@
                 width: 42px;
                 height: 42px;
                 font-size: 1.1rem;
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                z-index: 1001;
             }
             
             /* Ottimizzazioni desktop per social */
             .social-links {
                 gap: 1.5rem;
                 margin: 2.5rem 0;
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                z-index: 1000;
             }
         }
         
@@ -1805,12 +1846,7 @@
         }
         
         /* Container espanso quando ha servizi selezionati */
-        .service-details.has-selected-services {
-            padding: 3rem;
-            background: rgba(255, 255, 255, 0.99);
-            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
-            border: 2px solid rgba(212, 175, 55, 0.2);
-        }
+
         
         /* Scrollbar solo quando necessario */
         .service-details.has-scroll {
@@ -1980,59 +2016,7 @@
         }
         
         /* Effetto 3D quando la tabella ha servizi selezionati */
-        .service-table.has-selected-services {
-            width: 100vw;
-            margin-left: calc(-50vw + 50%);
-            margin-right: calc(-50vw + 50%);
-            transform: scale(1.02) perspective(1000px) rotateX(2deg);
-            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
-            border: 3px solid var(--oro-luxury);
-            border-radius: 25px;
-            position: relative;
-            z-index: 10;
-        }
-        
-        .service-table.has-selected-services::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(243, 198, 191, 0.1) 100%);
-            border-radius: 30px;
-            z-index: -1;
-            filter: blur(20px);
-        }
-        
-        /* Font e proporzioni ottimizzate per tabelle espande */
-        .service-table.has-selected-services th {
-            font-size: 1.3rem;
-            padding: 1.8rem 1.5rem;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.4) 0%, rgba(243, 198, 191, 0.3) 100%);
-            color: var(--text-dark);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .service-table.has-selected-services td {
-            font-size: 1.1rem;
-            padding: 1.5rem 1.2rem;
-            font-weight: 500;
-        }
-        
-        .service-table.has-selected-services .service-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        
-        .service-table.has-selected-services .select-service-btn {
-            width: 40px;
-            height: 40px;
-            font-size: 1.2rem;
-            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.5);
-        }
+
         
         .service-table th,
         .service-table td {
@@ -2055,74 +2039,7 @@
                 transform-origin: top left;
             }
             
-            /* Effetto 3D mobile per tabelle con servizi selezionati */
-            .service-table.has-selected-services {
-                width: 100vw;
-                margin-left: calc(-50vw + 50%);
-                margin-right: calc(-50vw + 50%);
-                transform: scale(1.05) perspective(800px) rotateX(1deg);
-                box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
-                border: 2px solid var(--oro-luxury);
-                border-radius: 20px;
-                z-index: 15;
-                position: relative;
-            }
-            
-            .service-table.has-selected-services::before {
-                content: '';
-                position: absolute;
-                top: -8px;
-                left: -8px;
-                right: -8px;
-                bottom: -8px;
-                background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(243, 198, 191, 0.15) 100%);
-                border-radius: 25px;
-                z-index: -1;
-                filter: blur(15px);
-            }
-            
-            .service-table.has-selected-services th {
-                font-size: 1rem;
-                padding: 1.2rem 1rem;
-                background: linear-gradient(135deg, rgba(212, 175, 55, 0.5) 0%, rgba(243, 198, 191, 0.4) 100%);
-                font-weight: 700;
-                text-transform: uppercase;
-                letter-spacing: 0.8px;
-            }
-            
-            .service-table.has-selected-services td {
-                font-size: 0.9rem;
-                padding: 1rem 0.8rem;
-                font-weight: 500;
-            }
-            
-            .service-table.has-selected-services .service-name {
-                font-size: 1rem;
-                font-weight: 600;
-            }
-            
-            .service-table.has-selected-services .select-service-btn {
-                width: 36px;
-                height: 36px;
-                font-size: 1rem;
-                box-shadow: 0 4px 15px rgba(40, 167, 69, 0.5);
-            }
-            
-            /* Container espanso mobile */
-            .service-details.has-selected-services {
-                padding: 2rem;
-                background: rgba(255, 255, 255, 0.99);
-                box-shadow: 0 15px 40px rgba(212, 175, 55, 0.25);
-                border: 2px solid rgba(212, 175, 55, 0.2);
-                border-radius: 20px;
-            }
-            
-            /* Righe evidenziate mobile */
-            .service-table.has-selected-services tr:hover {
-                background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(243, 198, 191, 0.3) 100%);
-                transform: scale(1.01);
-                box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-            }
+
             
             .service-table th,
             .service-table td {
@@ -2239,110 +2156,9 @@
             }
         }
         
-        /* Effetto 3D per tablet (breakpoint intermedio) */
-        @media (max-width: 1024px) and (min-width: 769px) {
-            .service-table.has-selected-services {
-                width: 100vw;
-                margin-left: calc(-50vw + 50%);
-                margin-right: calc(-50vw + 50%);
-                transform: scale(1.03) perspective(900px) rotateX(1.5deg);
-                box-shadow: 0 18px 50px rgba(212, 175, 55, 0.35);
-                border: 3px solid var(--oro-luxury);
-                border-radius: 22px;
-                z-index: 12;
-                position: relative;
-            }
-            
-            .service-table.has-selected-services::before {
-                content: '';
-                position: absolute;
-                top: -12px;
-                left: -12px;
-                right: -12px;
-                bottom: -12px;
-                background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(243, 198, 191, 0.12) 100%);
-                border-radius: 28px;
-                z-index: -1;
-                filter: blur(18px);
-            }
-            
-            .service-table.has-selected-services th {
-                font-size: 1.2rem;
-                padding: 1.6rem 1.3rem;
-                background: linear-gradient(135deg, rgba(212, 175, 55, 0.35) 0%, rgba(243, 198, 191, 0.25) 100%);
-                font-weight: 700;
-                text-transform: uppercase;
-                letter-spacing: 0.9px;
-            }
-            
-            .service-table.has-selected-services td {
-                font-size: 1rem;
-                padding: 1.3rem 1rem;
-                font-weight: 500;
-            }
-            
-            .service-table.has-selected-services .service-name {
-                font-size: 1.1rem;
-                font-weight: 600;
-            }
-            
-            .service-table.has-selected-services .select-service-btn {
-                width: 38px;
-                height: 38px;
-                font-size: 1.1rem;
-                box-shadow: 0 5px 18px rgba(40, 167, 69, 0.45);
-            }
-            
-            /* Container espanso per tablet */
-            .service-details.has-selected-services {
-                padding: 2.5rem;
-                background: rgba(255, 255, 255, 0.99);
-                box-shadow: 0 18px 50px rgba(212, 175, 55, 0.18);
-                border: 2px solid rgba(212, 175, 55, 0.15);
-                border-radius: 22px;
-            }
-            
-            /* Righe evidenziate per tablet */
-            .service-table.has-selected-services tr:hover {
-                background: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(243, 198, 191, 0.22) 100%);
-                transform: scale(1.015);
-                box-shadow: 0 10px 35px rgba(212, 175, 55, 0.35);
-            }
-        }
+
         
-        /* Ottimizzazioni per orientamento landscape su mobile */
-        @media (max-width: 768px) and (orientation: landscape) {
-            .service-table.has-selected-services {
-                width: 100vw;
-                margin-left: calc(-50vw + 50%);
-                margin-right: calc(-50vw + 50%);
-                transform: scale(1.08) perspective(700px) rotateX(0.8deg);
-                box-shadow: 0 12px 35px rgba(212, 175, 55, 0.45);
-                border: 2px solid var(--oro-luxury);
-                border-radius: 18px;
-                z-index: 18;
-            }
-            
-            .service-table.has-selected-services th {
-                font-size: 0.95rem;
-                padding: 1rem 0.8rem;
-            }
-            
-            .service-table.has-selected-services td {
-                font-size: 0.85rem;
-                padding: 0.8rem 0.6rem;
-            }
-            
-            .service-table.has-selected-services .select-service-btn {
-                width: 34px;
-                height: 34px;
-                font-size: 0.95rem;
-            }
-            
-            .service-details.has-selected-services {
-                padding: 1.8rem;
-            }
-        }
+
         
 
         
@@ -2428,6 +2244,11 @@
         
         .service-table tr:hover {
             background: rgba(243, 198, 191, 0.05);
+        }
+        
+        /* Nascondi completamente la sezione contattami */
+        .contact-section {
+            display: none !important;
         }
         
         .select-service-btn {
@@ -3848,9 +3669,6 @@
                     
                     // Aggiorna lo stato dei pulsanti per mantenere la sincronizzazione
                     this.updateButtonStates();
-                    
-                    // Aggiorna l'effetto 3D delle tabelle
-                    this.updateTable3DEffect();
                 }
                 
                 generateWhatsAppMessage() {
@@ -3904,9 +3722,6 @@
                     
                     this.updateCart();
                     this.thankYouMessage.style.display = 'none';
-                    
-                    // Rimuovi l'effetto 3D dalle tabelle
-                    this.updateTable3DEffect();
                 }
                 
                 handleOutsideClick(e) {
@@ -3967,6 +3782,9 @@
                     if (!this.selectServiceBtns) return;
                     
                     this.selectServiceBtns.forEach(btn => {
+                        // Assicurati che sia un pulsante delle tabelle dei servizi, non del carrello
+                        if (!btn.classList.contains('select-service-btn')) return;
+                        
                         const btnRow = btn.closest('tr');
                         if (btnRow && btnRow.dataset.service) {
                             const serviceName = btnRow.dataset.service;
@@ -3989,42 +3807,15 @@
                 
 
                 
-                // Metodo per aggiornare l'effetto 3D delle tabelle
-                updateTable3DEffect() {
-                    if (!this.serviceDropdowns) return;
-                    
-                    this.serviceDropdowns.forEach(dropdown => {
-                        const table = dropdown.querySelector('.service-table');
-                        const details = dropdown.querySelector('.service-details');
-                        
-                        if (table && details) {
-                            // Controlla se questa tabella ha servizi selezionati
-                            const hasSelectedServices = this.hasSelectedServicesInTable(table);
-                            
-                            if (hasSelectedServices) {
-                                table.classList.add('has-selected-services');
-                                details.classList.add('has-selected-services');
-                            } else {
-                                table.classList.remove('has-selected-services');
-                                details.classList.remove('has-selected-services');
-                            }
-                        }
-                    });
-                }
-                
-                // Metodo per verificare se una tabella ha servizi selezionati
-                hasSelectedServicesInTable(table) {
-                    const rows = table.querySelectorAll('tr[data-service]');
-                    return Array.from(rows).some(row => {
-                        const serviceName = row.dataset.service;
-                        return this.selectedServices.some(service => service.name === serviceName);
-                    });
-                }
-                
                 // Metodo per gestire i pulsanti di rimozione
                 bindRemoveButtons() {
                     const removeButtons = document.querySelectorAll('.remove-service-btn');
                     removeButtons.forEach(btn => {
+                        // Assicurati che il pulsante mantenga la sua icona originale
+                        if (!btn.innerHTML.includes('fa-times')) {
+                            btn.innerHTML = '<i class="fas fa-times"></i>';
+                        }
+                        
                         btn.addEventListener('click', (e) => {
                             e.preventDefault();
                             const serviceIndex = parseInt(btn.dataset.serviceIndex);
