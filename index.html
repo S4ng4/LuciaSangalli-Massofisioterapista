@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,7 @@
     <title>Lucia Sangalli - Massofisioterapia</title>
     
     <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#fcf6ff">
+    <meta name="theme-color" content="#FFEED5">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="light-content">
     <meta name="apple-mobile-web-app-title" content="Lucia Sangalli">
@@ -24,12 +24,12 @@
     <style>
         /* ===== MOBILE-FIRST CSS VARIABLES ===== */
         :root {
-            --primary: #fcf6ff;
-            --secondary: #f3c6bf;
-            --accent: #D4AF37;
-            --accent-light: #F4E4BC;
-            --text-dark: #3a322c;
-            --text-medium: #8B7355;
+            --primary: #FFEED5;
+            --secondary: #40160D;
+            --accent: #F7EBFF;
+            --accent-light: #BF988F;
+            --text-dark: #40160D;
+            --text-medium: #73473D;
             --white: #FEFEFE;
             --success: #25D366;
             --danger: #dc3545;
@@ -107,10 +107,10 @@
             left: 0;
             right: 0;
             height: var(--header-height);
-            background: linear-gradient(135deg, var(--primary) 0%, rgba(243, 198, 191, 0.1) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, rgba(191, 152, 143, 0.1) 100%);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(243, 198, 191, 0.2);
+            border-bottom: 1px solid rgba(64, 22, 13, 0.2);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -125,7 +125,7 @@
             align-items: center;
             gap: var(--spacing-xs);
             font-weight: 700;
-            color: var(--accent);
+            color: var(--secondary);
             font-size: var(--font-lg);
         }
         
@@ -145,7 +145,7 @@
         .logo-name {
             font-size: var(--font-lg);
             font-weight: 600;
-            color: var(--accent);
+            color: var(--secondary);
         }
         
         .logo-profession {
@@ -168,7 +168,7 @@
             align-items: center;
             justify-content: center;
             background: rgba(255,255,255,0.8);
-            color: var(--accent);
+            color: var(--secondary);
             font-size: var(--font-lg);
             cursor: pointer;
             transition: var(--transition-smooth);
@@ -189,10 +189,10 @@
             right: 0;
             height: var(--bottom-nav-height);
             margin: 0 var(--spacing-md) var(--spacing-md);
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 238, 213, 0.25);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(64, 22, 13, 0.18);
             border-radius: 32px;
             display: flex;
             justify-content: space-around;
@@ -365,7 +365,7 @@
         
         .btn-primary {
             background: var(--secondary);
-            color: var(--text-dark);
+            color: var(--white);
         }
         
         .btn-success {
@@ -375,8 +375,8 @@
         
         .btn-outline {
             background: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
         }
         
         .btn:active {
@@ -384,7 +384,7 @@
         }
         
         .btn-primary:active {
-            background: #e8b3ab;
+            background: #2a0f08;
         }
         
         .btn-success:active {
@@ -398,7 +398,7 @@
             padding: var(--spacing-md);
             margin-bottom: var(--spacing-md);
             box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(243, 198, 191, 0.2);
+            border: 1px solid rgba(64, 22, 13, 0.2);
             transition: var(--transition-smooth);
         }
         
@@ -423,7 +423,7 @@
         .card-icon {
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent-light) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -442,15 +442,15 @@
             align-items: center;
             justify-content: space-between;
             padding: var(--spacing-lg);
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(243, 198, 191, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(64, 22, 13, 0.1) 0%, rgba(191, 152, 143, 0.05) 100%);
             border-radius: 24px;
             margin-bottom: var(--spacing-md);
             cursor: pointer;
             touch-action: manipulation;
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(64, 22, 13, 0.15);
             box-shadow: 
-                0 4px 20px rgba(212, 175, 55, 0.08),
+                0 4px 20px rgba(64, 22, 13, 0.08),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
@@ -587,18 +587,18 @@
         .service-price {
             font-size: var(--font-2xl);
             font-weight: 800;
-            color: var(--accent);
+            color: var(--secondary);
             margin-right: var(--spacing-md);
             position: relative;
             z-index: 2;
-            text-shadow: 0 1px 3px rgba(212, 175, 55, 0.2);
+            text-shadow: 0 1px 3px rgba(64, 22, 13, 0.2);
         }
         
         .service-select {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            border: 2px solid var(--success);
+            border: 2px solid var(--secondary);
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
             display: flex;
@@ -610,10 +610,10 @@
             position: relative;
             z-index: 3;
             font-size: var(--font-lg);
-            color: var(--success);
+            color: var(--secondary);
             box-shadow: 
-                0 4px 12px rgba(37, 211, 102, 0.2),
-                0 2px 4px rgba(37, 211, 102, 0.1);
+                0 4px 12px rgba(64, 22, 13, 0.2),
+                0 2px 4px rgba(64, 22, 13, 0.1);
         }
         
         .service-select:active {
@@ -672,7 +672,7 @@
         }
         
         .cart-count {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent-light) 100%);
             color: white;
             width: 28px;
             height: 28px;
@@ -683,8 +683,8 @@
             font-size: var(--font-sm);
             font-weight: 700;
             box-shadow: 
-                0 4px 12px rgba(212, 175, 55, 0.3),
-                0 2px 4px rgba(212, 175, 55, 0.2);
+                0 4px 12px rgba(64, 22, 13, 0.3),
+                0 2px 4px rgba(64, 22, 13, 0.2);
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
         
@@ -749,9 +749,9 @@
         .cart-item-price {
             font-size: var(--font-lg);
             font-weight: 700;
-            color: var(--accent);
+            color: var(--secondary);
             margin-right: var(--spacing-md);
-            text-shadow: 0 1px 2px rgba(212, 175, 55, 0.2);
+            text-shadow: 0 1px 2px rgba(64, 22, 13, 0.2);
         }
         
         .remove-item {
@@ -782,7 +782,7 @@
             justify-content: space-between;
             align-items: center;
             padding: var(--spacing-lg) 0;
-            border-top: 2px solid rgba(212, 175, 55, 0.2);
+            border-top: 2px solid rgba(64, 22, 13, 0.2);
             margin-bottom: var(--spacing-lg);
             position: relative;
         }
@@ -794,7 +794,7 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+            background: linear-gradient(90deg, transparent 0%, var(--secondary) 50%, transparent 100%);
         }
         
         .total-label {
@@ -807,9 +807,9 @@
         .total-amount {
             font-size: var(--font-3xl);
             font-weight: 800;
-            color: var(--accent);
-            text-shadow: 0 2px 4px rgba(212, 175, 55, 0.3);
-            filter: drop-shadow(0 1px 3px rgba(212, 175, 55, 0.2));
+            color: var(--secondary);
+            text-shadow: 0 2px 4px rgba(64, 22, 13, 0.3);
+            filter: drop-shadow(0 1px 3px rgba(64, 22, 13, 0.2));
         }
         
         /* ===== ABOUT SECTION ===== */
@@ -1363,18 +1363,119 @@
             0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
             50% { transform: translate(-50%, -50%) rotate(180deg); }
         }
+        
+        /* ===== GLASS BADGE CART ===== */
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: linear-gradient(135deg, var(--danger) 0%, #c53030 100%);
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            font-size: 11px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+            box-shadow: 
+                0 4px 12px rgba(220, 53, 69, 0.4),
+                0 2px 4px rgba(220, 53, 69, 0.3);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes badgePulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 
+                    0 4px 12px rgba(220, 53, 69, 0.4),
+                    0 2px 4px rgba(220, 53, 69, 0.3);
+            }
+            50% { 
+                transform: scale(1.1);
+                box-shadow: 
+                    0 6px 20px rgba(220, 53, 69, 0.5),
+                    0 3px 8px rgba(220, 53, 69, 0.4);
+            }
+        }
+        
+        /* ===== MOBILE HEADER ENHANCEMENT ===== */
+        .mobile-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--header-height);
+            background: linear-gradient(135deg, 
+                rgba(255, 238, 213, 0.95) 0%, 
+                rgba(191, 152, 143, 0.1) 100%);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            border-bottom: 1px solid rgba(64, 22, 13, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-lg);
+            z-index: 1000;
+            padding-top: var(--safe-area-top);
+            box-shadow: 
+                0 4px 20px rgba(0, 0, 0, 0.08),
+                0 1px 4px rgba(0, 0, 0, 0.06);
+        }
+        
+        .btn-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            color: var(--secondary);
+            font-size: var(--font-lg);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            touch-action: manipulation;
+            box-shadow: 
+                0 4px 12px rgba(64, 22, 13, 0.15),
+                0 2px 4px rgba(64, 22, 13, 0.1);
+            position: relative;
+        }
+        
+        .btn-icon:active {
+            transform: scale(0.95);
+            background: rgba(64, 22, 13, 0.1);
+            box-shadow: 
+                0 2px 8px rgba(64, 22, 13, 0.2),
+                0 1px 3px rgba(64, 22, 13, 0.15);
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
     </style>
     
     <!-- Font Awesome per le icone -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
 </head>
 <body>
     <div class="app-container">
         <!-- ===== MOBILE HEADER ===== -->
         <header class="mobile-header">
             <div class="logo-mobile">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNENEFGMzciLz4KPHN2ZyB4PSIxMCIgeT0iMTAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjZmNmNmZmIj4KPHN0eWxlPi5zdDB7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDojZmNmNmZmO308L3N0eWxlPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTQsN0gxMGMtMC42LDAtMSwwLjQtMSwxdjhhMS4xLDEuMSwwLDAsMCwxLDFoNGMwLjYsMCwxLTAuNCwxLTFWOEMxNSw3LjQsMTQuNiw3LDE0LDd6IE0xMy41LDE3aC0zdjFoLTF2LTFIMTBjLTAuNiwwLTEtMC40LTEtMVY4YzAtMC42LDAuNC0xLDEtMWg0YzAuNiwwLDEsMC40LDEsMXY4QzE1LDE2LjYsMTQuNiwxNywxMy41LDE3eiIvPgo8L3N2Zz4KPC9zdmc+" alt="Lucia Sangalli">
+                <img src="LuciaLogo.png" alt="Lucia Sangalli">
                 <div class="logo-text-mobile">
                     <div class="logo-name">Lucia Sangalli</div>
                     <div class="logo-profession">Massofisioterapia</div>
@@ -2117,7 +2218,7 @@
                     bottom: 100px;
                     left: 16px;
                     right: 16px;
-                    background: var(--accent);
+                    background: var(--secondary);
                     color: white;
                     padding: 16px;
                     border-radius: 12px;
@@ -2129,7 +2230,7 @@
                 installBanner.innerHTML = `
                     <div style="margin-bottom: 8px; font-weight: 600;">Installa l'app</div>
                     <div style="font-size: 14px; margin-bottom: 12px;">Aggiungi Lucia Sangalli alla tua home screen</div>
-                    <button onclick="installApp()" style="background: white; color: var(--accent); border: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; margin-right: 8px;">Installa</button>
+                    <button onclick="installApp()" style="background: white; color: var(--secondary); border: none; padding: 8px 16px; border-radius: 6px; font-weight: 600; margin-right: 8px;">Installa</button>
                     <button onclick="this.parentElement.remove()" style="background: transparent; color: white; border: 1px solid white; padding: 8px 16px; border-radius: 6px;">Non ora</button>
                 `;
                 document.body.appendChild(installBanner);
@@ -2175,326 +2276,5 @@
             console.error('Unhandled Promise Rejection:', e.reason);
         });
     </script>
-
-    <!-- CSS Animation for install banner -->
-    <style>
-        @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        .cart-badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: var(--danger);
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid white;
-        }
-        
-        .touch-device .btn:hover,
-        .touch-device .nav-item:hover,
-        .touch-device .service-item:hover {
-            transform: none;
-        }
-        
-        /* Fix per devices with notch */
-        @supports (padding: max(0px)) {
-            .mobile-header {
-                padding-left: max(var(--spacing-md), env(safe-area-inset-left));
-                padding-right: max(var(--spacing-md), env(safe-area-inset-right));
-            }
-            
-            .bottom-nav {
-                padding-left: max(0px, env(safe-area-inset-left));
-                padding-right: max(0px, env(safe-area-inset-right));
-            }
-            .btn-outline {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px) saturate(180%);
-            -webkit-backdrop-filter: blur(10px) saturate(180%);
-            color: var(--accent);
-            border: 2px solid var(--accent);
-            box-shadow: 
-                0 4px 16px rgba(212, 175, 55, 0.2),
-                0 2px 6px rgba(212, 175, 55, 0.1);
-        }
-        
-        .btn:active {
-            transform: scale(0.98);
-        }
-        
-        .btn-primary:active {
-            box-shadow: 
-                0 3px 12px rgba(243, 198, 191, 0.4),
-                0 1px 4px rgba(243, 198, 191, 0.3);
-        }
-        
-        .btn-success:active {
-            box-shadow: 
-                0 3px 12px rgba(37, 211, 102, 0.4),
-                0 1px 4px rgba(37, 211, 102, 0.3);
-        }
-        
-        .btn-outline:active {
-            background: rgba(212, 175, 55, 0.1);
-            box-shadow: 
-                0 2px 8px rgba(212, 175, 55, 0.3),
-                0 1px 3px rgba(212, 175, 55, 0.2);
-        }
-        
-        /* ===== ENHANCED CARDS ===== */
-        .card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-radius: 24px;
-            padding: var(--spacing-lg);
-            margin-bottom: var(--spacing-lg);
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.08),
-                0 2px 8px rgba(0, 0, 0, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.03) 0%, rgba(243, 198, 191, 0.03) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .card:active {
-            transform: scale(0.98);
-            box-shadow: 
-                0 4px 20px rgba(0, 0, 0, 0.1),
-                0 1px 4px rgba(0, 0, 0, 0.08);
-        }
-        
-        .card:active::before {
-            opacity: 1;
-        }
-        
-        .card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: var(--spacing-md);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .card-title {
-            font-size: var(--font-xl);
-            font-weight: 700;
-            color: var(--text-dark);
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-        
-        .card-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: var(--font-xl);
-            box-shadow: 
-                0 6px 20px rgba(212, 175, 55, 0.3),
-                0 2px 8px rgba(212, 175, 55, 0.2);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* ===== ENHANCED HERO SECTION ===== */
-        .hero-mobile {
-            background: linear-gradient(135deg, 
-                rgba(252, 246, 255, 0.95) 0%, 
-                rgba(243, 198, 191, 0.2) 50%, 
-                rgba(212, 175, 55, 0.1) 100%);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-radius: 28px;
-            padding: var(--spacing-xl) var(--spacing-lg);
-            margin-bottom: var(--spacing-xl);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 
-                0 12px 40px rgba(0, 0, 0, 0.1),
-                0 4px 16px rgba(0, 0, 0, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .hero-mobile::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, 
-                rgba(212, 175, 55, 0.08) 0%, 
-                rgba(243, 198, 191, 0.05) 35%, 
-                transparent 70%);
-            animation: heroFloat 8s ease-in-out infinite;
-        }
-        
-        @keyframes heroFloat {
-            0%, 100% { 
-                transform: translate(-50%, -50%) rotate(0deg) scale(1);
-                opacity: 0.6;
-            }
-            33% { 
-                transform: translate(-45%, -55%) rotate(120deg) scale(1.1);
-                opacity: 0.8;
-            }
-            66% { 
-                transform: translate(-55%, -45%) rotate(240deg) scale(0.9);
-                opacity: 0.4;
-            }
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-title {
-            font-size: clamp(1.8rem, 6vw, 2.5rem);
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: var(--spacing-md);
-            line-height: 1.2;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background: linear-gradient(135deg, var(--text-dark) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-subtitle {
-            font-size: var(--font-lg);
-            color: var(--text-medium);
-            margin-bottom: var(--spacing-xl);
-            line-height: 1.5;
-            opacity: 0.9;
-        }
-        
-        /* ===== GLASS BADGE CART ===== */
-        .cart-badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: linear-gradient(135deg, var(--danger) 0%, #c53030 100%);
-            color: white;
-            border-radius: 50%;
-            width: 22px;
-            height: 22px;
-            font-size: 11px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid white;
-            box-shadow: 
-                0 4px 12px rgba(220, 53, 69, 0.4),
-                0 2px 4px rgba(220, 53, 69, 0.3);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-            animation: badgePulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes badgePulse {
-            0%, 100% { 
-                transform: scale(1);
-                box-shadow: 
-                    0 4px 12px rgba(220, 53, 69, 0.4),
-                    0 2px 4px rgba(220, 53, 69, 0.3);
-            }
-            50% { 
-                transform: scale(1.1);
-                box-shadow: 
-                    0 6px 20px rgba(220, 53, 69, 0.5),
-                    0 3px 8px rgba(220, 53, 69, 0.4);
-            }
-        }
-        
-        /* ===== MOBILE HEADER ENHANCEMENT ===== */
-        .mobile-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: var(--header-height);
-            background: linear-gradient(135deg, 
-                rgba(252, 246, 255, 0.95) 0%, 
-                rgba(243, 198, 191, 0.1) 100%);
-            backdrop-filter: blur(25px) saturate(180%);
-            -webkit-backdrop-filter: blur(25px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 var(--spacing-lg);
-            z-index: 1000;
-            padding-top: var(--safe-area-top);
-            box-shadow: 
-                0 4px 20px rgba(0, 0, 0, 0.08),
-                0 1px 4px rgba(0, 0, 0, 0.06);
-        }
-        
-        .btn-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            color: var(--accent);
-            font-size: var(--font-lg);
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            touch-action: manipulation;
-            box-shadow: 
-                0 4px 12px rgba(212, 175, 55, 0.15),
-                0 2px 4px rgba(212, 175, 55, 0.1);
-            position: relative;
-        }
-        
-        .btn-icon:active {
-            transform: scale(0.95);
-            background: rgba(212, 175, 55, 0.1);
-            box-shadow: 
-                0 2px 8px rgba(212, 175, 55, 0.2),
-                0 1px 3px rgba(212, 175, 55, 0.15);
-        }
-    </style>
 </body>
 </html>
