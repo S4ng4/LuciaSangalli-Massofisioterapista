@@ -298,7 +298,7 @@
         
         /* ===== HERO SECTION MOBILE ===== */
         .hero-mobile {
-            background: linear-gradient(135deg, var(--primary) 0%, rgba(243, 198, 191, 0.3) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, rgba(191, 152, 143, 0.3) 100%);
             border-radius: 24px;
             padding: var(--spacing-xl) var(--spacing-md);
             margin-bottom: var(--spacing-lg);
@@ -308,6 +308,37 @@
             box-shadow: var(--shadow-md);
         }
         
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        
+        .hero-bg-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 238, 213, 0.8) 0%, 
+                rgba(191, 152, 143, 0.6) 50%, 
+                rgba(64, 22, 13, 0.4) 100%);
+            z-index: 2;
+        }
+        
         .hero-mobile::before {
             content: '';
             position: absolute;
@@ -315,8 +346,9 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(64, 22, 13, 0.1) 0%, transparent 70%);
             animation: float 6s ease-in-out infinite;
+            z-index: 3;
         }
         
         @keyframes float {
@@ -326,7 +358,7 @@
         
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 4;
         }
         
         .hero-title {
@@ -400,6 +432,62 @@
             box-shadow: var(--shadow-sm);
             border: 1px solid rgba(64, 22, 13, 0.2);
             transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card-enhanced,
+        .promotion-card-enhanced {
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .card-image {
+            position: relative;
+            height: 120px;
+            overflow: hidden;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .card-bg-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(255, 238, 213, 0.8) 0%, 
+                rgba(191, 152, 143, 0.6) 100%);
+            z-index: 1;
+        }
+        
+        .service-card-enhanced .card-header,
+        .promotion-card-enhanced .card-header,
+        .service-card-enhanced p,
+        .promotion-card-enhanced p,
+        .service-card-enhanced .btn {
+            position: relative;
+            z-index: 2;
+            padding: var(--spacing-md);
+        }
+        
+        .service-card-enhanced .card-header {
+            padding-bottom: var(--spacing-sm);
+        }
+        
+        .service-card-enhanced p {
+            padding-top: 0;
+        }
+        
+        .service-card-enhanced .btn {
+            margin: 0 var(--spacing-md) var(--spacing-md);
         }
         
         .card:active {
@@ -454,6 +542,41 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
+        }
+        
+        .category-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        
+        .category-bg-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(64, 22, 13, 0.7) 0%, 
+                rgba(191, 152, 143, 0.5) 100%);
+            z-index: 2;
+        }
+        
+        .category-header > div:not(.category-image) {
+            position: relative;
+            z-index: 3;
         }
         
         .category-header::before {
@@ -824,6 +947,7 @@
             border: 4px solid var(--accent-light);
             margin: 0 auto var(--spacing-md);
             overflow: hidden;
+            position: relative;
         }
         
         .about-image img {
@@ -832,11 +956,49 @@
             object-fit: cover;
         }
         
+        .about-profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+        
         .about-text {
             font-size: var(--font-base);
             line-height: 1.6;
             color: var(--text-dark);
             margin-bottom: var(--spacing-md);
+        }
+        
+        /* ===== CONTACT HERO ===== */
+        .contact-hero {
+            position: relative;
+            height: 200px;
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .contact-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(64, 22, 13, 0.6) 0%, 
+                rgba(191, 152, 143, 0.4) 100%);
+            z-index: 1;
         }
         
         /* ===== TESTIMONIALS ===== */
@@ -1497,6 +1659,10 @@
             <!-- HOME PAGE -->
             <div id="home" class="page active">
                 <div class="hero-mobile">
+                    <div class="hero-background">
+                        <img src="hero.png" alt="Ambiente rilassante spa" class="hero-bg-image">
+                        <div class="hero-overlay"></div>
+                    </div>
                     <div class="hero-content">
                         <h1 class="hero-title">Ritrova il tuo equilibrio</h1>
                         <p class="hero-subtitle">Massofisioterapia professionale per il tuo benessere</p>
@@ -1507,7 +1673,11 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card service-card-enhanced">
+                    <div class="card-image">
+                        <img src="serviceCard.jpg" alt="Servizi di massofisioterapia" class="card-bg-image">
+                        <div class="card-overlay"></div>
+                    </div>
                     <div class="card-header">
                         <h2 class="card-title">I miei servizi</h2>
                         <div class="card-icon">
@@ -1523,7 +1693,11 @@
                     </a>
                 </div>
 
-                <div class="card">
+                <div class="card promotion-card-enhanced">
+                    <div class="card-image">
+                        <img src="PromozioniAutunno25.jpg" alt="Promozioni Autunno 2025" class="card-bg-image">
+                        <div class="card-overlay"></div>
+                    </div>
                     <div class="card-header">
                         <h2 class="card-title">Promozioni Autunno</h2>
                         <div class="card-icon">
@@ -1549,6 +1723,10 @@
                 <!-- Trattamenti Terapeutici -->
                 <div class="service-category">
                     <div class="category-header" onclick="toggleCategory('treatments')">
+                        <div class="category-image">
+                            <img src="Neck Massage in Tranquil Spa.png" alt="Trattamenti terapeutici" class="category-bg-image">
+                            <div class="category-overlay"></div>
+                        </div>
                         <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
                             <i class="fas fa-hand-holding-heart category-icon"></i>
                             <span class="category-title">Trattamenti Terapeutici</span>
@@ -1616,6 +1794,10 @@
                 <!-- Rituali Benessere -->
                 <div class="service-category">
                     <div class="category-header" onclick="toggleCategory('rituals')">
+                        <div class="category-image">
+                            <img src="respira.png" alt="Rituali benessere" class="category-bg-image">
+                            <div class="category-overlay"></div>
+                        </div>
                         <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
                             <i class="fas fa-spa category-icon"></i>
                             <span class="category-title">Rituali Benessere</span>
@@ -1661,6 +1843,10 @@
                 <!-- Promozioni Autunno 2025 -->
                 <div class="service-category">
                     <div class="category-header" onclick="toggleCategory('promotions')">
+                        <div class="category-image">
+                            <img src="petaliRosa.jpg" alt="Promozioni autunno" class="category-bg-image">
+                            <div class="category-overlay"></div>
+                        </div>
                         <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
                             <i class="fas fa-percent category-icon"></i>
                             <span class="category-title">Promozioni Autunno 2025</span>
@@ -1742,7 +1928,7 @@
             <div id="about" class="page">
                 <div class="about-card card">
                     <div class="about-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjYwIiBmaWxsPSIjZjNjNmJmIi8+CjxjaXJjbGUgY3g9IjYwIiBjeT0iNDUiIHI9IjE1IiBmaWxsPSIjM2EzMjJjIi8+CjxwYXRoIGQ9Ik0zMCA4NUMzMCA3NS4zMzQgNDMuNDMxIDY3LjUgNjAgNjcuNUM3Ni41NjkgNjcuNSA5MCA3NS4zMzQgOTAgODVWOTVIMzBWODVaIiBmaWxsPSIjM2EzMjJjIi8+Cjwvc3ZnPg==" alt="Lucia Sangalli">
+                        <img src="LuciaFoto.png" alt="Lucia Sangalli - Massofisioterapista" class="about-profile-image">
                     </div>
                     <h1 style="font-size: var(--font-2xl); font-weight: 700; margin-bottom: var(--spacing-md); text-align: center;">Chi sono</h1>
                     <div class="about-text">
@@ -1785,9 +1971,13 @@
 
             <!-- CONTACT PAGE -->
             <div id="contact" class="page">
-                <h1 style="font-size: var(--font-2xl); font-weight: 700; margin-bottom: var(--spacing-lg); text-align: center;">
-                    Contatti
-                </h1>
+                <div class="contact-hero">
+                    <img src="CandeleRose.png" alt="Ambiente spa rilassante" class="contact-hero-image">
+                    <div class="contact-hero-overlay"></div>
+                    <h1 style="font-size: var(--font-2xl); font-weight: 700; margin-bottom: var(--spacing-lg); text-align: center; position: relative; z-index: 2;">
+                        Contatti
+                    </h1>
+                </div>
 
                 <div class="contact-info">
                     <div class="contact-item">
